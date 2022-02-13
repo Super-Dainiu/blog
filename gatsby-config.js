@@ -1,15 +1,15 @@
 module.exports = {
   pathPrefix: "/blog",
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Dainiu's Treehole`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Daniel Shao`,
+      summary: `who lives and studies in Shanghai happily.`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    siteUrl: `https://super-dainiu.github.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `Super-Dainiu`,
     },
   },
   plugins: [
