@@ -44,7 +44,7 @@ const Bio = () => {
       />
       {author?.name && (
         <p>
-          Written by <strong>{author.name}</strong>. <a href="../">Homepage</a>
+          Written by <strong>{author.name}</strong>. <a href="https://super-dainiu.github.io/">Homepage</a>
         </p>
       )}
     </div>
