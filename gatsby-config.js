@@ -9,7 +9,7 @@ module.exports = {
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://super-dainiu.github.io/`,
     social: {
-      twitter: `Super-Dainiu`,
+      github: `Super-Dainiu`,
     },
   },
   plugins: [
