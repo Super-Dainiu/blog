@@ -4,7 +4,7 @@ module.exports = {
     title: `Dainiu's Treehole`,
     author: {
       name: `Daniel Shao`,
-      summary: `who lives and studies in Shanghai happily.`,
+      summary: `.`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://super-dainiu.github.io/`,
