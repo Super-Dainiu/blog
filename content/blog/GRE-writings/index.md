@@ -8,25 +8,25 @@ description: "Basic techniques of argument"
 
 ## 写作步骤	
 
-​	Argument需要找到文章中的四个逻辑漏洞，每一个漏洞一般都由四步展开：
+> Argument需要找到文章中的四个逻辑漏洞，每一个漏洞一般都由四步展开：
 
->**Step 0**：承接
->
->​		even if, even though, granted that
->
->**Step 1**：作者的逻辑漏洞是什么
->
->**Step 2**：因为作者缺什么
->
->​		because of, due to, owing to, as a result of, in virtue of, on account of, thanks to
->
->​		has failed to take into account sth
->
->**Step 3**：脑洞：对step 2的具体举例
->
->​		if, Given that, Provided that, supposing, assuming, imagining, in case that, in the event that
->
->**Step 4**：那么结果会如何不同
+**Step 0**：承接
+
+​		even if, even though, granted that
+
+**Step 1**：作者的逻辑漏洞是什么
+
+**Step 2**：因为作者缺什么
+
+​		because of, due to, owing to, as a result of, in virtue of, on account of, thanks to
+
+​		has failed to take into account sth
+
+**Step 3**：脑洞：对step 2的具体举例
+
+​		if, Given that, Provided that, supposing, assuming, imagining, in case that, in the event that
+
+**Step 4**：那么结果会如何不同
 
 
 
