@@ -14,6 +14,10 @@ description: "Basics of argument"
 >
 >**Step 2**：因为作者缺什么
 >
+>​		because of, due to, owing to, as a result of, in virtue of, on account of, thanks to
+>
+>​		has failed to take into account sth
+>
 >**Step 3**：脑洞：对step 2的具体举例
 >
 >**Step 4**：那么结果会如何不同
@@ -24,25 +28,33 @@ description: "Basics of argument"
 
 1. 数据问题
 
-（1）不符合实际情况 	
+   - 不符合实际情况 	
 
-​	A. 他可能在说谎
+     - 他可能在说谎
 
->条件：特定人群，说谎有直接利益
+       条件：特定人群，说谎有直接利益
 
-​	B. 调查手段限制了
+     - 调查手段限制了
 
->条件：调查手段有限
+       条件：调查手段有限
 
-​	C. 调查问题
+     - 调查问题
 
-> 条件：针对某群人/某地的调查
+       条件：针对某群人/某地的调查
 
-（2）数据模糊
+       脑洞：调查对象有偏向？/问卷设计有偏向？/言行不一 pay lip service	
 
-（3）百分比
+   - 数据模糊
 
-（4）平均值
+     脑洞：缺少基数，具体涨幅，可能只涨了一点
+
+   - 百分比
+
+     脑洞：缺少基数，可能基数太小，涨幅高也没用
+
+   - 平均值
+
+     脑洞：平均值受到极值影响
 
 2. 偷换概念
 3. 因果关系
