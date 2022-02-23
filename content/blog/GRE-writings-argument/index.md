@@ -2,7 +2,7 @@
 title: GRE Writing Cheatsheet -- Argument
 date: "2022-02-17"
 description: "Basic techniques of argument"
-tags: "GRE"
+tags: ["GRE"]
 ---
 
 
