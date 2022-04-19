@@ -1,6 +1,6 @@
 ---
 title: Chapter 3
-date: "2022-04-19"
+date: "2022-04-20"
 descriptions: "普通化学"
 ---
 
@@ -80,3 +80,22 @@ descriptions: "普通化学"
 <img src="img/4.JPG" style="zoom:33%;" />
 
 - $sp^3d$杂化轨道：1个ns轨道、3个np轨道和1个nd轨道组合成5个能量相等的$sp^3d$杂化轨道，夹角为90°、120°，三角双锥
+
+<img src="img/5.JPG" style="zoom:50%;" />
+
+- $sp^3d^2$杂化轨道：1个ns轨道、3个np轨道和2个nd轨道组成6个能量相等的$sp^3d^2$杂化轨道，夹角为90°，八面体
+
+  <img src="img/6.JPG" style="zoom: 50%;" />
+
+- 乙烯分子：一个$\sigma$键，一个$\pi$键
+
+<img src="img/8.JPG" style="zoom:33%;" />
+
+​	乙炔分子：一个$\sigma$键，两个$\pi$键
+
+
+
+<img src="img/7.JPG" style="zoom:33%;" />
+
+- 杂化轨道随着s成分的增加键能增大键长减小
+- 杂化轨道分为*等性*（成键）和*不等性*（成键+孤对电子）杂化轨道两种
