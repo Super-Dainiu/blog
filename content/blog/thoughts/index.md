@@ -1,7 +1,7 @@
 ---
 title: Random Thoughts
 date: "2022-04-18"
-description: "In the midnight"
+description: "In the midnight, version -1.0 for Personal Statement"
 ---
 
  *I have to try my best to make anything under control.*
