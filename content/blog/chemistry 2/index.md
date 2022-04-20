@@ -1,7 +1,7 @@
 ---
 title: Chapter 3
 date: "2022-04-20"
-descriptions: "普通化学"
+description: "普通化学"
 ---
 
 ## 离子键
