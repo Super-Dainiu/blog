@@ -1,7 +1,7 @@
 ---
 title: Chapter 2
 date: "2022-04-05"
-descriptions: "普通化学"
+description: "普通化学"
 ---
 
 ## 原子的量子力学模型
