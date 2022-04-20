@@ -1,7 +1,6 @@
 ---
-title: TD error v.s Monte-Carlo error
+title: Random Thoughts *I have to make anything under control*
 date: "2022-2-24"
-descriptions: "A simple proof"
-tags: ["Reinforcement Learning"]
+descriptions: "Another fragmented PS"
 ---
 
