@@ -148,7 +148,7 @@ I find it hard to explain why.
 
 See docs [[9](https://colossalai.org/docs/basics/define_your_config)]. Here is the example of training BERT on 2 GPUs.
 
-![](img/1.JPG)
+<img src="img/1.JPG" style="zoom: 25%;" />
 
 The BERT[[6](https://arxiv.org/pdf/2105.13120.pdf)] uses sequence parallelism, which enables long sequence training. This is easy to understand, as the sequence is split into several subsequences for training. 
 
