@@ -138,6 +138,22 @@ What is done in MLP can also be done in transformer. ($h$ for hidden size, $b$ f
 
 I find it hard to explain why.
 
+
+
+#### Use Colossal-AI
+
+See docs [[9](https://colossalai.org/docs/basics/define_your_config)]. Here is the example of training BERT on 2 GPUs.
+
+![](img/1.JPG)
+
+The BERT[[6](https://arxiv.org/pdf/2105.13120.pdf)] uses sequence parallelism, which enables long sequence training. This is easy to understand, as the sequence is split into several subsequences for training. 
+
+<img src="img/20.JPG" style="zoom:50%;" />
+
+Each device GPU#i will be scattered with one subsequence of {query, key, value}$^i$, and a transmitting is required to *all-gather* the ${Q, K, V}$ as a whole. 
+
+<img src="img/21.JPG" style="zoom:50%;" />
+
 ------
 
 ##### Reference:
@@ -147,5 +163,7 @@ I find it hard to explain why.
 3. GPipe: Easy Scaling with Micro-Batch Pipeline Parallelism. https://arxiv.org/pdf/1811.06965.pdf
 4. An Efficient 2D Method for Training Super-Large Deep Learning Models. https://arxiv.org/pdf/2104.05343.pdf
 5. 2.5-dimensional distributed model training. https://arxiv.org/pdf/2105.14500.pdf
-6. https://zhuanlan.zhihu.com/p/366906920\
-7. https://cseweb.ucsd.edu/classes/sp11/cse262-a/Lectures/262-pres1-hal.pdf
+6. Sequence Parallelism: Long Sequence Training from System Perspective. https://arxiv.org/pdf/2105.13120.pdf
+7. https://zhuanlan.zhihu.com/p/366906920\
+8. https://cseweb.ucsd.edu/classes/sp11/cse262-a/Lectures/262-pres1-hal.pdf
+9. https://colossalai.org/docs/basics/define_your_config
