@@ -111,7 +111,7 @@ $$
 
  $C=AB^T$ is different. Mark 
 $$
-B=\begin{pmatrix}B_1^T\\B_2^T\\\vdots\\B_n^T\end{pmatrix}
+B=\begin{pmatrix}B_1^T \\ B_2^T \\ \vdots \\ B_n^T \end{pmatrix}
 $$
 Therefore, 
 $$
