@@ -102,8 +102,8 @@ C =
 A_1 \\ A_2 \\ \cdots \\ A_n
 \end{pmatrix}
 \begin{pmatrix}
-B_1 & B_2 & \cdots & B_n
-\end{pmatrix}
+B_1^T & B_2^T & \cdots & B_n^T
+\end{pmatrix} = A_1 B_1^T + A_2 B_2^T + \cdots + A_n B_n^T
 $$
 
 
