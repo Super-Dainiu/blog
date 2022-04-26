@@ -105,7 +105,38 @@ A_1 \\ A_2 \\ \cdots \\ A_n
 B_1^T & B_2^T & \cdots & B_n^T
 \end{pmatrix} = A_1 B_1^T + A_2 B_2^T + \cdots + A_n B_n^T
 $$
+<img src="img/16.JPG" style="zoom:50%;" />
 
+<img src="img/17.JPG" style="zoom:50%;" />
+
+ $C=AB^T$ is different. Mark $B=\begin{pmatrix}B_1^T\\B_2^T\\\vdots\\B_n^T\end{pmatrix}$.
+$$
+C = \begin{pmatrix}
+C_1 & C_2 & \cdots & C_n
+\end{pmatrix} = 
+A
+\begin{pmatrix}
+B_1 & B_2 & \cdots & B_n
+\end{pmatrix} = 
+\begin{pmatrix}
+AB_1 & AB_2 & \cdots & AB_n
+\end{pmatrix}
+$$
+
+
+<img src="img/19.JPG" style="zoom:50%;" />
+
+The block-wise parallelism is even more powerful. It could apply pipeline to the SUMMA algorithm.
+
+<img src="img/18.JPG" style="zoom: 50%;" />
+
+What is done in MLP can also be done in transformer. ($h$ for hidden size, $b$ for batch size, q for # of GPUs).
+
+<img src="img/15.JPG" style="zoom:50%;" />
+
+##### Tensor 2.5D/3D
+
+I find it hard to explain why.
 
 ------
 
@@ -115,5 +146,6 @@ $$
 2. Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism. https://arxiv.org/pdf/1909.08053.pdf
 3. GPipe: Easy Scaling with Micro-Batch Pipeline Parallelism. https://arxiv.org/pdf/1811.06965.pdf
 4. An Efficient 2D Method for Training Super-Large Deep Learning Models. https://arxiv.org/pdf/2104.05343.pdf
-5. https://zhuanlan.zhihu.com/p/366906920\
-6. https://cseweb.ucsd.edu/classes/sp11/cse262-a/Lectures/262-pres1-hal.pdf
+5. 2.5-dimensional distributed model training. https://arxiv.org/pdf/2105.14500.pdf
+6. https://zhuanlan.zhihu.com/p/366906920\
+7. https://cseweb.ucsd.edu/classes/sp11/cse262-a/Lectures/262-pres1-hal.pdf
