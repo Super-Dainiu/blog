@@ -1,7 +1,7 @@
 ---
 title: Chapter 4
 date: "2022-05-17"
-description: "普通化学”
+description: "普通化学"
 ---
 
 ## 热力学第一定律
