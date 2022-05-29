@@ -256,7 +256,7 @@ description: "Aggregate of 普通化学"
 
 # Chapter 4
 
-[4 化学热力学-2022.pdf](file/4 化学热力学-2022.pdf)
+[4 化学热力学-2022.pdf](files/4 化学热力学-2022.pdf)
 
 ## 热力学第一定律
 
