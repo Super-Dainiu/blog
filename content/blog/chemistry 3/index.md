@@ -45,7 +45,7 @@ description: "普通化学"
     - $dw=-P_{体}\cdot dv$
     - $w = -\int (nRT/V) dV = -nRTln(V_2/V_1) = -nRTln(P_1/P_2)$
 
-<img src="img/1.JPG" style="zoom:50%;" />
+<img src="img/1.JPG"  />
 
 - 可逆过程
   - 相变点发生相变
