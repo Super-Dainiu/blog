@@ -27,7 +27,7 @@ description: "Aggregate of 普通化学"
 
 ​		m为磁量子数，m=0, ±1, ±2, ..., ±l
 
-<img src="img/2-1.JPG" alt="量子数和原子轨道" style="zoom:25%;" />
+<img src="img/2-1.JPG" alt="量子数和原子轨道" style="zoom: 50%;" />
 
 - 对于径函数R(r)
 
@@ -53,7 +53,7 @@ description: "Aggregate of 普通化学"
 
   磁量子数m决定角动量的分量大小
 
-<img src="img/2-2.JPG" style="zoom:25%;" />
+<img src="img/2-2.JPG" style="zoom: 50%;" />
 
 ## 多电子原子结构
 
@@ -107,7 +107,7 @@ description: "Aggregate of 普通化学"
 
 - 波恩-哈勃循环
 
-<img src="img/3-9.JPG" style="zoom:33%;" />
+<img src="img/3-9.JPG" style="zoom: 50%;" />
 
 ## 共价键
 
@@ -115,7 +115,7 @@ description: "Aggregate of 普通化学"
 
 原子通过共用电子对形成的化学键称为**共价键**
 
-<img src="img/3-1.JPG" style="zoom:33%;" />
+<img src="img/3-1.JPG" style="zoom: 50%;" />
 
 两个成键原子的核间距离称为**键长**，原子之间的共享电子对数目称为**键级**
 
@@ -149,15 +149,15 @@ description: "Aggregate of 普通化学"
 
 - $sp$杂化轨道：两个$sp$杂化轨道互成180° ，直线型（激发-杂化）
 
-<img src="img/3-2.JPG" style="zoom:33%;" />
+<img src="img/3-2.JPG" style="zoom: 50%;" />
 
 - $sp^2$杂化轨道：1个ns轨道和2个np轨道组成三个$sp^2$杂化轨道，夹角为120°，平面三角形
 
-<img src="img/3-3.JPG" style="zoom:33%;" />
+<img src="img/3-3.JPG" style="zoom: 50%;" />
 
 - $sp^3$杂化轨道：1个ns轨道和3个np轨道组成四个$sp^2$杂化轨道，夹角为109°28‘，四面体
 
-<img src="img/3-4.JPG" style="zoom:33%;" />
+<img src="img/3-4.JPG" style="zoom: 50%;" />
 
 - $sp^3d$杂化轨道：1个ns轨道、3个np轨道和1个nd轨道组合成5个能量相等的$sp^3d$杂化轨道，夹角为90°、120°，三角双锥
 
@@ -169,18 +169,18 @@ description: "Aggregate of 普通化学"
 
 - 乙烯分子：一个$\sigma$键，一个$\pi$键
 
-<img src="img/3-8.JPG" style="zoom:33%;" />
+<img src="img/3-8.JPG" style="zoom: 50%;" />
 
 ​	乙炔分子：一个$\sigma$键，两个$\pi$键
 
 
 
-<img src="img/3-7.JPG" style="zoom:33%;" />
+<img src="img/3-7.JPG" style="zoom: 50%;" />
 
 - 杂化轨道随着s成分的增加键能增大键长减小
 - 杂化轨道分为*等性*（成键）和*不等性*（成键+孤对电子）杂化轨道两种
 
-<img src="img/3-10.JPG" style="zoom:33%;" />
+<img src="img/3-10.JPG" style="zoom: 50%;" />
 
 #### 价层电子对互斥理论
 
@@ -198,13 +198,13 @@ description: "Aggregate of 普通化学"
   - 反键电子轨道：能量高，电子云密度为零
   - 波函数叠加，相位相同波增强，能量降低。
 
-<img src="img/3-11.JPG" style="zoom:33%;" />
+<img src="img/3-11.JPG" style="zoom: 50%;" />
 
-<img src="img/3-12.JPG" style="zoom:33%;" />
+<img src="img/3-12.JPG" style="zoom: 50%;" />
 
-<img src="img/3-13.JPG" style="zoom:33%;" />
+<img src="img/3-13.JPG" style="zoom: 50%;" />
 
-<img src="img/3-14.JPG" style="zoom:33%;" />
+<img src="img/3-14.JPG" style="zoom: 50%;" />
 
 - 原子轨道线性组合的原则
   - 能量匹配原则：只有能量相近的原子轨道之间可以进行线性组合
@@ -248,7 +248,7 @@ description: "Aggregate of 普通化学"
     - 氢键的强弱与X，Y的电负性与大小密切相关
     - 分子内氢键降低沸点，分子间氢键升高沸点
 
-  <img src="img/3-15.JPG" style="zoom:33%;" />
+  <img src="img/3-15.JPG" style="zoom: 50%;" />
 
   - 大部分分子间作用力以色散力为主
     - 非极性分子，分子间色散力随分子量增加而加强
@@ -299,7 +299,7 @@ description: "Aggregate of 普通化学"
     - $dw=-P_{体}\cdot dv$
     - $w = -\int (nRT/V) dV = -nRTln(V_2/V_1) = -nRTln(P_1/P_2)$
 
-<img src="img/4-1.JPG"  />
+<img src="img/4-1.JPG" style="zoom: 150%;" />
 
 - 可逆过程
   - 相变点发生相变
