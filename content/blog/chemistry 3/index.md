@@ -4,6 +4,17 @@ date: "2022-05-29"
 description: "Aggregate of 普通化学"
 ---
 
+# Chapter 1
+
+## 理想气体相关定律
+
+- 理想气体状态方程：$PV=nRT$
+
+- Dalton分压定律
+  - $P_{总}=P_A+P_B+\cdots+P_{i}$（温度和总体积恒定）
+  - 物质的量分数：$x_i=\dfrac{n_i}{n_{总}}$，$P_i=P_{总}\cdot x_i$
+  - $V_{总}=V_A+V_B+V_C+\cdots+V_i+\cdots$（温度和总压强恒定）
+
 # Chapter 2
 
 ## 原子的量子力学模型
