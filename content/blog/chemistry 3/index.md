@@ -6,7 +6,7 @@ description: "Aggregate of 普通化学"
 
 # Chapter 1
 
-## 理想气体相关定律
+## 物质的聚集状态
 
 - 理想气体状态方程：$PV=nRT$
 
@@ -14,6 +14,27 @@ description: "Aggregate of 普通化学"
   - $P_{总}=P_A+P_B+\cdots+P_{i}$（温度和总体积恒定）
   - 物质的量分数：$x_i=\dfrac{n_i}{n_{总}}$，$P_i=P_{总}\cdot x_i$
   - $V_{总}=V_A+V_B+V_C+\cdots+V_i+\cdots$（温度和总压强恒定）
+
+- 相（phase）：物理和化学性质完全均匀的部分称为相。
+  - 气体-一个气相，液体-一、二、三相共存，固体-一个固体一个相
+
+<img src="img/1-1.JPG" style="zoom: 80%;" />
+
+- 气体的液化
+  - 永久气体：室温下不会液化的气体
+  - 可凝聚气体：临界温度高于室温
+- 液体的蒸发
+  - 气-液两相达平衡时的压强——饱和蒸汽压
+  - Clausius-Clapeyron方程
+    - $ln(P_2/P_1)=-\dfrac{\Delta H_{vap}}{R}(1/T_2-1/T_1)$
+- 凝固和融化
+
+<img src="img/1-2.JPG" style="zoom: 80%;" />
+
+- 水的相图
+  - AC线不能无限延长
+
+<img src="img/1-3.JPG" style="zoom: 80%;" />
 
 # Chapter 2
 
