@@ -36,8 +36,41 @@ description: "普通化学"
 
   $\Delta U = q + w$，w-功（+：环境->体系），q-热（+：环境->体系）
 
-  
-  
-  
-  
-  
+- 体积功的计算
+  - 膨胀功：$w=-F\cdot \Delta L=-P_{外}\Delta V$
+  - 可逆过程和最大功
+    - $dw=-P_{外}\times dv\approx -P_{体}\times dv$
+    - $w = -\int (nRT/V) dV = -nRTln(V_2/V_1) = -nRTln(P_1/P_2)$
+  - 压缩功（压缩次数越多，环境对体系做功越小）
+    - $dw=-P_{体}\cdot dv$
+    - $w = -\int (nRT/V) dV = -nRTln(V_2/V_1) = -nRTln(P_1/P_2)$
+
+<img src="img/1.JPG" style="zoom:50%;" />
+
+- 可逆过程
+  - 相变点发生相变
+
+## 热化学
+
+- 恒容热效应
+  - $V=C$, $dV=0$
+  - $\Delta U=q_V$
+- 恒压热效应
+  - $P_{体}=P_{外}=C, dP=0$
+  - $\Delta U=q_{P}+w_{P}=q_{P}-\int^{V_2}_{V_1}P_{外}dV$
+  - $q_P = \Delta U + P_{外}(V_2-V_1) = \Delta (U+PV)$
+- 焓与焓变
+  - 定义：$U+PV=H$
+  - $\Delta H=q_P$
+  - 如果只有固态和液态的反应，$\Delta(PV)$较小，$\Delta H=\Delta U+\Delta (PV)=\Delta U$
+  - $\Delta(PV)=\Delta nRT$
+- 热容
+  - $C = q/(T_2-T_1)$
+  - 比热容：$c=C/m$，摩尔热容：$C_m=C/n$
+  - $C_{V, m}$：摩尔恒容热容，$C_{p, m}$：摩尔恒压热容
+  - 单原子分子理想气体：$C_{V, m}=3/2 R$，$C_{p, m}=5/2 R$
+  - 双原子分子理想气体：$C_{V, m}=5/2 R$，$C_{p, m}=7/2R$
+  - $\Delta H=C_p \Delta T$，$\Delta U=C_V \Delta T$
+- 盖斯定律
+  - $\Delta_f H_m^\theta = \sum n_i \Delta_f H_{m, 生成物i}^\theta - \sum n_j\Delta_f H^\theta_{m, 反应物j}$
+
