@@ -1,10 +1,14 @@
 ---
 title: General Chemistry
-date: "2022-05-29"
+date: "2022-05-31"
 description: "Aggregate of 普通化学"
 ---
 
 # Chapter 1
+
+<a href="files/1 物质的聚集状态-气体和液体2022.pdf">1 物质的聚集状态-气体和液体2022.pdf</a>
+
+<a href="files/1 物质的聚集状态-溶液2022.pdf">1 物质的聚集状态-溶液2022.pdf</a>
 
 ## 物质的聚集状态
 
@@ -57,6 +61,8 @@ description: "Aggregate of 普通化学"
   - $\Pi=\rho g h=\dfrac{n}{V}RT$
 
 # Chapter 2
+
+<a href="files/2 原子结构和元素周期律-2022.pdf">2 原子结构和元素周期律-2022.pdf</a>
 
 ## 原子的量子力学模型
 
@@ -120,6 +126,10 @@ description: "Aggregate of 普通化学"
 - 顺磁性：具有不成对电子成单电子、不成对电子数越多，原子或离子的顺磁性越大
 
 # Chapter 3
+
+<a href="files/3-1 离子键-价键理论-杂化轨道理论-价层电子对互斥理论-2022.pdf">3-1 离子键-价键理论-杂化轨道理论-价层电子对互斥理论-2022.pdf</a>
+
+<a href="files/3-2 分子轨道理论-分子间作用力-氢键.pdf">3-2 分子轨道理论-分子间作用力-氢键.pdf</a>
 
 ## 离子键
 
@@ -389,4 +399,8 @@ description: "Aggregate of 普通化学"
   - $\Delta H=C_p \Delta T$，$\Delta U=C_V \Delta T$
 - 盖斯定律
   - $\Delta_f H_m^\theta = \sum n_i \Delta_f H_{m, 生成物i}^\theta - \sum n_j\Delta_f H^\theta_{m, 反应物j}$
+
+# 复习
+
+<a href="files/普通化学A（上）-复习-2022.pdf">普通化学A（上）-复习-2022.pdf</a>
 
