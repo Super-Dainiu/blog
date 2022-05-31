@@ -404,3 +404,4 @@ description: "Aggregate of 普通化学"
 
 <a href="files/普通化学A（上）-复习-2022.pdf">普通化学A（上）-复习-2022.pdf</a>
 
+<img src="img/5-1.JPG" style="zoom:50%;" />
