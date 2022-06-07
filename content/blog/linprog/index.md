@@ -63,12 +63,13 @@ A^T+s-c\\
 x\circ s
 \end{pmatrix} = 0
 $$
-Intuitively, we will use Newton method to solve non-linear systems. But here, we will first define a central path $(x(\mu), y(\mu), s(\mu))$, which converges to $F(x, y, s)=0$. And the central path is given by,
+Intuitively, we will use Newton method to solve non-linear systems. But here, we will first define a feasible set $\mathcal{F}={(x, y, s)|Ax=b, A^Ty+s=c, (x, s)>0}$, and a central path $(x(\mu), y(\mu), s(\mu))\in \mathcal{F}$, which converges to $F(x, y, s)=0$. The central path is given by,
 $$
-F(x, y, s)=
+F(x(\mu), y(\mu), s(\mu))=
 \begin{pmatrix}Ax-b\\
 A^T+s-c\\
 x\circ s - \mu
 \end{pmatrix} 
 = 0
 $$
+**Def 4.3 (Primal-Dual Method)** Given the above central path. $\forall \mu > 0$, $\exist$ unique $$(x(\mu), y(\mu), s(\mu))\in \mathcal{F}$$ that solves $F(x(\mu), y(\mu), s(\mu))=0$. When $\mu\downarrow0$, $\lim_{\mu\rightarrow0}(x(\mu), y(\mu), s(\mu)) = (x^*, y^*, s^*)$.#
