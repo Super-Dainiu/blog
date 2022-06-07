@@ -18,17 +18,17 @@ There are three types of Interior Point Methods.
 
 In this chapter, we will consider the linear programming problem in standard form.
 $$
-\begin{align}
+\begin{align*}
 
 \min\, &c^Tx\\
 \textrm{s.t}\, &Ax=b\\
 &x>0
 
-\end{align}
+\end{align*}
 $$
 
 
-**Def 4.1** Given polyhedron $P=\{x|Ax=b, x\ge 0\}$, the interior point of  $P$ is defined as $\{x\in P|x>0\}$. #
+**Def 4.1** Given polyhedron $P=\{x|Ax=b, x\ge 0\}$, the interior point of $P$ is defined as $\{x\in P|x>0\}$. #
 
 #### Primal Method
 
@@ -36,10 +36,10 @@ If we only consider the primal problem, we could integrates inequality constrain
 
 **Def 4.2 (Barrier Method)**  To solve the LP problem in standard form, we introduce a variable $\mu > 0$, and the problem can be reformulated as $(P_\mu)$,
 $$
-\begin{align}
+\begin{align*}
 	\min &\quad c^Tx-\mu\sum^n_{i=1}log(x_i)\\
 	\textrm{s.t}&\quad Ax=b
-\end{align}
+\end{align*}
 $$
 $\forall \mu > 0$, $\exist$ unique $x(\mu)$ that solves $(P_\mu)$. When $\mu\downarrow0$, $\lim_{\mu\rightarrow0}x(\mu) = x^*$.#
 
@@ -73,3 +73,23 @@ x\circ s - \mu
 = 0
 $$
 **Def 4.3 (Primal-Dual Method)** Given the above central path. $\forall \mu > 0$, $\exist$ unique $$(x(\mu), y(\mu), s(\mu))\in \mathcal{F}$$ that solves $F(x(\mu), y(\mu), s(\mu))=0$. When $\mu\downarrow0$, $\lim_{\mu\rightarrow0}(x(\mu), y(\mu), s(\mu)) = (x^*, y^*, s^*)$.#
+
+**Lemma 9.5 (of Bertsimas)** If $x^*=x(\mu)$, $y^*=y(\mu)$ and $s^*=s(\mu)$ satisfy condition $F(x(\mu), y(\mu), s(\mu))=0$, then they are also optimal solution to $\min \, c^Tx-\mu\sum^n_{i=1}log(x_i) \quad \textrm{s.t}\, Ax=b$.
+**proof:** Let $x$ be an arbitrary vector that satisfies $x\ge0$ and $Ax=b$. The barrier function will be,
+$$
+\begin{align*}
+B_\mu(x) &= c^Tx-\mu\sum^n_{i=1}log(x_i)\\
+	     &= c^Tx+y^{*T}(b-Ax)-\mu\sum^n_{i=1}log(x_i)\\
+	     &= (c-A^Ty^*)^Tx+y^{*T}b-\mu\sum^n_{i=1}log(x_i)\\
+	     &= s^{*T}x+y^{*T}b-\mu\sum^n_{i=1}log(x_i)\\
+\end{align*}
+$$
+Take out $s^{*T}x-\mu\sum^n_{i=1}log(x_i)$, and set the derivative to zero, we have,
+$$
+s_i^*-\mu x_i=0
+$$
+Replacing $x_i = \dfrac{s_i^*}{\mu}$, we will have,
+$$
+B_\mu(x)\ge n\mu+y^{*T}b-\mu\sum^n_{i=1}log(\dfrac{s_i^*}{\mu})
+$$
+This means $x^*=\dfrac{s^*}{\mu}$ is the optimal solution to the barrier function, $B_\mu(x^*)\le B_\mu(x)$. 
