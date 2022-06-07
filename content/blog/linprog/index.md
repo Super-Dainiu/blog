@@ -12,3 +12,5 @@ There are three types of Interior Point Methods.
 - Potential Reduction
 - Path Following ✌
 
+**Def 4.1** Given polyhedron $P=\{x|Ax=b, x\ge 0\}$, the interior point of  $P$ is defined as $\{x\in P|x>0\}$.
+
