@@ -135,3 +135,50 @@ $$
 $$
  This method is local quadratically convergent to a solution. #
 
+
+
+We can derive one Newton step as follows.
+$$
+\begin{pmatrix}
+x_{k+1}\\
+y_{k+1}\\
+s_{k+1}
+\end{pmatrix}\leftarrow
+\begin{pmatrix}
+x_{k}\\
+y_{k}\\
+s_{k}
+\end{pmatrix} - 
+\begin{pmatrix}
+\Delta x_{k}\\
+\Delta y_{k}\\
+\Delta s_{k}
+\end{pmatrix}
+$$
+where
+$$
+\begin{pmatrix}
+\Delta x_{k}\\
+\Delta y_{k}\\
+\Delta s_{k}
+\end{pmatrix} = [JF(x^k, y^k, s^k)]^{-1} F(x^k, y^k, s^k)
+$$
+is the solution to the following linear equations.
+$$
+\begin{pmatrix}
+0 & A^T & I\\
+A & 0 & 0\\
+S & 0 & X
+\end{pmatrix}
+\begin{pmatrix}
+\Delta x_{k}\\
+\Delta y_{k}\\
+\Delta s_{k}
+\end{pmatrix}
+=\begin{pmatrix}
+A^Ty+s-c\\
+Ax-b\\
+s\circ x
+\end{pmatrix}
+$$
+Note that the Newton method doesn't guarantee global convergence, we need to avoid a single $s_ix_i<0$. Otherwise, $(x_k, y_k, s_k)$ will fall out of the feasible set $\mathcal{F}=\{(x, y, s)|Ax=b, A^Ty+s=c, x, s>0\}$.
