@@ -197,7 +197,8 @@ Therefore, we will introduce an intermediate variable $\mu$ to keep both optimal
 >\left(x^{0}, y^{0}, s^{0}\right) \in F_{0} \quad \tau=\sigma \mu \quad \sigma \in(0,1) \quad \mu=\frac{1}{n} x^{\top} s
 >$$
 >For $k=0,1, \cdots$
->		Use Newton's Method with starting point $\left(x^{k}, y^{k}, s^{k}\right)$ to solve $F(x, y, \xi)=\left(\begin{array}{c}0 \\ 0 \\ \sigma \mu_{k} e\end{array}\right)$ and get,
+>
+>​		Use Newton's Method with starting point $\left(x^{k}, y^{k}, s^{k}\right)$ to solve $F(x, y, \xi)=\left(\begin{array}{c}0 \\ 0 \\ \sigma \mu_{k} e\end{array}\right)$ and get,
 >$$
 >\left(x^{k+1}, y^{k+1}, s^{k+1}\right) \in F^{0}
 >$$
@@ -213,7 +214,8 @@ Therefore, we will introduce an intermediate variable $\mu$ to keep both optimal
 >\left(x^{0}, y^{0}, s^{0}\right),\left(x^{0}, s^{0}\right)>0
 >$$
 >For $k=0,1,2, \cdots$
->		Choose $\sigma_{k} \in[0,1]$, $\mu_{k}=\dfrac{1}{n} x^T s$
+>
+>​		Choose $\sigma_{k} \in[0,1]$, $\mu_{k}=\dfrac{1}{n} x^T s$
 >
 >​		Find the Newton step of
 >$$
