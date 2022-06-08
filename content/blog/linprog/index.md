@@ -77,7 +77,7 @@ $$
 **Def 4.3 (Primal-Dual Method)** Given the above central path. $\forall \mu > 0$, $\exist$ unique $$(x(\mu), y(\mu), s(\mu))\in \mathcal{F}$$ that solves $F(x(\mu), y(\mu), s(\mu))=0$. When $\mu\downarrow0$, $\lim_{\mu\rightarrow0}(x(\mu), y(\mu), s(\mu)) = (x^*, y^*, s^*)$.#
 
 **Lemma 9.5 (of Bertsimas)** If $x^*=x(\mu)$, $y^*=y(\mu)$ and $s^*=s(\mu)$ satisfy condition $F(x(\mu), y(\mu), s(\mu))=0$, then they are also optimal solution to $\min \, c^Tx-\mu\sum^n_{i=1}log(x_i) \quad \textrm{s.t}\, Ax=b$.
-**proof:** Let $x$ be an arbitrary vector that satisfies $x\ge0$ and $Ax=b$. The barrier function will be,
+**Proof:** Let $x$ be an arbitrary vector that satisfies $x\ge0$ and $Ax=b$. The barrier function will be,
 $$
 \begin{align*}
 B_\mu(x) &= c^Tx-\mu\sum^n_{i=1}log(x_i)\\
@@ -116,4 +116,14 @@ When using Newton-Raphson method, we must follow
 - $\textrm{step-length}=1$
 - Fast local convergence (super linear), but no global convergence guaranteed
 
-### 
+**Theorem 4.1** Newton method has super linear convergence, i.e $\|x_{k+1}-x_*\|_2\le M\|x_k-x_*\|^2_2$
+
+**Proof**
+$$
+\begin{align*}
+\|x_{k+1}-x_*\|_2 &= \|x_k-[JF(x_k)]^{-1}F(x_k) - x_*\|_2\\
+				  &\le \|[JF(x_k)]^{-1}\|_2\cdot \|JF(x_k)(x_k - x_*) - (F(x_k) - F(x_*))\|_2\\
+				  &\le M_1\cdot \|(JF(x_k) - JF(\xi))(x_k-x_*)\|_2\\
+				  &\le M_1\cdot \|\textrm{Hess}(F(\eta))\|_2\cdot\|x_k-x_*\|^2_2
+\end{align*}
+$$
