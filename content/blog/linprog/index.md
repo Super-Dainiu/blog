@@ -181,6 +181,9 @@ Ax-b\\
 s\circ x
 \end{pmatrix}
 $$
+
+##### Practical Newton Method in IPM
+
 Note that the Newton method doesn't guarantee global convergence, we need to avoid a single $s_ix_i<0$. Otherwise, $(x_k, y_k, s_k)$ will fall out of the feasible set $\mathcal{F}=\{(x, y, s)|Ax=b, A^Ty+s=c, x, s>0\}$.
 
 <img src="img/4-1.jpg" style="zoom:67%;" />
@@ -199,3 +202,48 @@ Therefore, we will introduce an intermediate variable $\mu$ to keep both optimal
 >\left(x^{k+1}, y^{k+1}, s^{k+1}\right) \in F^{0}
 >$$
 >end
+
+
+
+>#### Primal-Dual IPM-Practical
+>(Only one iteration for inner Newton step.)
+>
+>Initial state:
+>$$
+>\left(x^{0}, y^{0}, s^{0}\right),\left(x^{0}, s^{0}\right)>0
+>$$
+>For $k=0,1,2, \cdots$
+>		Choose $\sigma_{k} \in[0,1]$, $\mu_{k}=\dfrac{1}{n} x^T s$
+>
+>​		Find the Newton step of
+>$$
+>\widetilde{F}_{k}(x, y, s)=\begin{pmatrix}
+>A^{\top} y+s-c \\
+>A x-b \\
+>x \circ s-\sigma_k \cdot \mu_{k} \cdot e
+>\end{pmatrix}=0
+>$$
+>​		with the linear equations,
+>$$
+>\begin{pmatrix}
+>0 & A^{\top} & I \\
+>A & 0 & 0 \\
+>S^{k} & 0 & X^{k}
+>\end{pmatrix}
+>\begin{pmatrix}
+>\Delta x^{k} \\
+>\Delta y^{k} \\
+>\Delta s^{k}
+>\end{pmatrix}=\begin{pmatrix}
+>A^{\top} y+s-c \\
+>A x-b \\
+>x \circ s -\sigma_k \cdot \mu_{k} \cdot e
+>\end{pmatrix}
+>$$
+>​		Find step-size $\alpha_k$, subject to $(x_{k+1}, s_{k+1})>0$
+>$$
+>\left(x_{k+1}, y_{k+1}, s_{k+1}\right)\leftarrow\left(x_{k}, y_{k}, s_{k}\right)+\alpha_{k}\left(\Delta x_{k}, \Delta y_{k}, \Delta s_{k}\right)
+>$$
+>
+>
+
