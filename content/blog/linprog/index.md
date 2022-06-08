@@ -182,3 +182,7 @@ s\circ x
 \end{pmatrix}
 $$
 Note that the Newton method doesn't guarantee global convergence, we need to avoid a single $s_ix_i<0$. Otherwise, $(x_k, y_k, s_k)$ will fall out of the feasible set $\mathcal{F}=\{(x, y, s)|Ax=b, A^Ty+s=c, x, s>0\}$.
+
+<img src="img/4-1.jpg" style="zoom:67%;" />
+
+Therefore, we will introduce an intermediate variable $\mu$ to keep both optimality and centrality.
