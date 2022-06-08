@@ -116,14 +116,21 @@ When using Newton-Raphson method, we must follow
 - $\textrm{step-length}=1$
 - Fast local convergence (super linear), but no global convergence guaranteed
 
-**Theorem 4.1** Newton method has super linear convergence, i.e $\|x_{k+1}-x_*\|_2\le M\|x_k-x_*\|^2_2$
+**Theorem 4.1 (Convergence of Newton Method)** Newton method has super linear convergence, i.e $\|x_{k+1}-x_*\|_2\le M\|x_k-x_*\|^2_2$.
 
-**Proof**
+**Proof** We first define $g(x) = x-\dfrac{f(x)}{f'(x)}$. It is clear that $g'(x) = \dfrac{f(x)f''(x)}{[f'(x)]^2}$ and $g'(x_*)=0$. Then, we can find that,
 $$
 \begin{align*}
-\|x_{k+1}-x_*\|_2 &= \|x_k-[JF(x_k)]^{-1}F(x_k) - x_*\|_2\\
-				  &\le \|[JF(x_k)]^{-1}\|_2\cdot \|JF(x_k)(x_k - x_*) - (F(x_k) - F(x_*))\|_2\\
-				  &\le M_1\cdot \|(JF(x_k) - JF(\xi))(x_k-x_*)\|_2\\
-				  &\le M_1\cdot \|\textrm{Hess}(F(\eta))\|_2\cdot\|x_k-x_*\|^2_2
+\|x_{k+1}-x_*\| &= \|x_k-\dfrac{f(x_k)}{f'(x_k)} - x_*\|\\
+				&= \|(x_k-\dfrac{f(x_k)}{f'(x_k)}) - (x_*-\dfrac{f(x_*)}{f'(x_*)})\|\\
+				&= \|g(x_k)-g(x_*)\|\\
+				&= \|g'(\xi)(x_k-x_*)\|\\
+				&= |g'(\xi)-g'(x_*)|\cdot\|x_k-x_*\|\\
+				&\le |g''(\eta)|\cdot\|x_k-x_*\|^2\\
+				&\le M\cdot\|x_k-x_*\|^2
+				
+				
 \end{align*}
 $$
+ This method is local quadratically convergent to a solution. #
+
