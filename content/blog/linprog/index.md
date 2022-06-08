@@ -185,4 +185,17 @@ Note that the Newton method doesn't guarantee global convergence, we need to avo
 
 <img src="img/4-1.jpg" style="zoom:67%;" />
 
-Therefore, we will introduce an intermediate variable $\mu$ to keep both optimality and centrality.
+Therefore, we will introduce an intermediate variable $\mu$ to keep both optimality and centrality, and solve $s\circ x=\mu$ instead of $s\circ x=0$.
+
+>#### Primal-Dual IPM-Naive:
+>
+>Initial state:
+>$$
+>\left(x^{0}, y^{0}, s^{0}\right) \in F_{0} \quad \tau=\sigma \mu \quad \sigma \in(0,1) \quad \mu=\frac{1}{n} x^{\top} s
+>$$
+>For $k=0,1, \cdots$
+>		Use Newton's Method with starting point $\left(x^{k}, y^{k}, s^{k}\right)$ to solve $F(x, y, \xi)=\left(\begin{array}{c}0 \\ 0 \\ \sigma \mu_{k} e\end{array}\right)$ and get,
+>$$
+>\left(x^{k+1}, y^{k+1}, s^{k+1}\right) \in F^{0}
+>$$
+>end
