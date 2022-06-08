@@ -45,6 +45,8 @@ $\forall \mu > 0$, $\exist$ unique $x(\mu)$ that solves $(P_\mu)$. When $\mu\dow
 
 #### Primal-Dual Method
 
+##### Intro
+
 If we consider both the primal and dual problem, we could solve the KKT condition of the LP problem. Let us start with the KKT condition of the standard form.
 $$
 \left\{\begin{array}{l}
@@ -63,7 +65,7 @@ A^T+s-c\\
 x\circ s
 \end{pmatrix} = 0
 $$
-Intuitively, we will use Newton method to solve non-linear systems. But here, we will first define a feasible set $\mathcal{F}={(x, y, s)|Ax=b, A^Ty+s=c, (x, s)>0}$, and a central path $(x(\mu), y(\mu), s(\mu))\in \mathcal{F}$, which converges to $F(x, y, s)=0$. The central path is given by,
+Intuitively, we will use Newton method to solve non-linear systems. But here, we will first define a feasible set $\mathcal{F}=\{(x, y, s)|Ax=b, A^Ty+s=c, (x, s)>0\}$, and a central path $(x(\mu), y(\mu), s(\mu))\in \mathcal{F}$, which converges to $F(x, y, s)=0$. The central path is given by,
 $$
 F(x(\mu), y(\mu), s(\mu))=
 \begin{pmatrix}Ax-b\\
@@ -92,4 +94,26 @@ Replacing $x_i = \dfrac{s_i^*}{\mu}$, we will have,
 $$
 B_\mu(x)\ge n\mu+y^{*T}b-\mu\sum^n_{i=1}log(\dfrac{s_i^*}{\mu})
 $$
-This means $x^*=\dfrac{s^*}{\mu}$ is the optimal solution to the barrier function, $B_\mu(x^*)\le B_\mu(x)$. 
+This means $x^*=\dfrac{s^*}{\mu}$ is the optimal solution to the barrier function, $B_\mu(x^*)\le B_\mu(x)$. #
+
+You may also derive the KKT condition for log-barrier method $(P_\mu)$, which is equivalent to the KKT condition in central path.
+
+##### Recap: Newton's Method
+
+Recall that we can solve a non-linear system with Newton-Raphson method.
+$$
+f(x_k+d_k) \approx f(x_k) + f'(x_k) d_k = 0\\
+x_{k+1} \leftarrow x_k+d_k = x_k - \dfrac{f(x_k)}{f'(x_k)}
+$$
+And for multivariable cases,
+$$
+F(x_k+d_k) \approx F(x_k) + Jf(x_k)d_k=0\\
+x_{k+1}\leftarrow x_k+d_k=x_k-[JF(x_k)]^{-1}F(x_k)
+$$
+When using Newton-Raphson method, we must follow
+
+- $JF(x_k)$ must be non-singular
+- $\textrm{step-length}=1$
+- Fast local convergence (super linear), but no global convergence guaranteed
+
+### 
