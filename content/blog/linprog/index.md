@@ -198,13 +198,13 @@ Therefore, we will introduce an intermediate variable $\mu$ to keep both optimal
 >$$
 >For $k=0,1, \cdots$
 >
->​		Use Newton's Method with starting point $\left(x^{k}, y^{k}, s^{k}\right)$ to solve $F(x, y, \xi)=\left(\begin{array}{c}0 \\ 0 \\ \sigma \mu_{k} e\end{array}\right)$ and get,
+>​		Use Newton's Method with starting point $\left(x^{k}, y^{k}, s^{k}\right)$ to solve $F(x, y, s)=\left(\begin{array}{c}0 \\ 0 \\ \sigma \mu_{k} e\end{array}\right)$ and get,
 >$$
 >\left(x^{k+1}, y^{k+1}, s^{k+1}\right) \in F^{0}
 >$$
 >end
 
-
+However, there is no necessity to compute the full Newton iteration
 
 >#### Primal-Dual IPM-Practical
 >(Only one iteration for inner Newton step.)
@@ -247,5 +247,15 @@ Therefore, we will introduce an intermediate variable $\mu$ to keep both optimal
 >\left(x_{k+1}, y_{k+1}, s_{k+1}\right)\leftarrow\left(x_{k}, y_{k}, s_{k}\right)+\alpha_{k}\left(\Delta x_{k}, \Delta y_{k}, \Delta s_{k}\right)
 >$$
 >
->
 
+The following graph shows the path of convergence.
+
+<img src="img/4-2.jpg" style="zoom:67%;" />
+
+##### Path-Following Methods
+
+For the sake of simplicity, we will define two types of neighborhoods.
+$$
+\mathcal{N}_2(\theta)=\{(x, y, s)\in\mathcal{F}|\|x\circ s-\mu e\|\le\theta \mu\}\\
+\mathcal{N}_{-\infty}(\gamma)=\{(x, y, s)\in\mathcal{F}|x_is_i\ge\gamma\mu, i=1,2,\cdots,n\}\\
+$$
