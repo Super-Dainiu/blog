@@ -247,6 +247,7 @@ However, there is no necessity to compute the full Newton iteration. We can comp
 >\left(x_{k+1}, y_{k+1}, s_{k+1}\right)\leftarrow\left(x_{k}, y_{k}, s_{k}\right)+\alpha_{k}\left(\Delta x_{k}, \Delta y_{k}, \Delta s_{k}\right)
 >$$
 >
+>End
 
 The following graph shows the path of convergence. If $\sigma=1$, $\tau=\mu$, the central path converges to $\mu$. If $\sigma=0$, $\tau=0$, the central path may not converge.
 
@@ -262,7 +263,7 @@ $$
 We have different path-following methods
 
 - Long-step Path-Following $\rightarrow$ $\mathcal{N}_{-\infty}$
-- Short-step Path-Following \rightarrow$ $\mathcal{N}_{2}$
+- Short-step Path-Following $\rightarrow$ $\mathcal{N}_{2}$
 
 >#### Long-Step Path-Following IPM
 >
@@ -270,4 +271,32 @@ We have different path-following methods
 >
 >​		Given $\gamma\in(0, 1)$, $0<\sigma_{min}\le\sigma_{max}<1$, $(x^0, y^0, s^0) \in \mathcal{N}_{-\infty}(\gamma)$
 >
+>For k=0, 1, \cdots
 >
+>​		Choose $\sigma_k\in[\sigma_{min}, \sigma_{max}]$, $\mu_{k}=\dfrac{1}{n} x^T s$
+>$$
+>\begin{pmatrix}
+>0 & A^{\top} & I \\
+>A & 0 & 0 \\
+>S^{k} & 0 & X^{k}
+>\end{pmatrix}
+>\begin{pmatrix}
+>\Delta x^{k} \\
+>\Delta y^{k} \\
+>\Delta s^{k}
+>\end{pmatrix}=\begin{pmatrix}
+>A^{\top} y+s-c \\
+>A x-b \\
+>x \circ s -\sigma_k \cdot \mu_{k} \cdot e
+>\end{pmatrix}
+>$$
+>​		Choose $\alpha_k$ as the largest value of $\alpha$ such that $(x^k(\alpha), y^k(\alpha), s^k(\alpha))\in \mathcal{N}_{-\infty}(\gamma)$, i.e.
+>$$
+>x^k(\alpha) := x^k+\alpha\Delta x^k\\
+>y^k(\alpha) := y^k+\alpha\Delta y^k\\
+>s^k(\alpha) := s^k+\alpha\Delta s^k\\
+>$$
+>​		We have $\mu^k(\alpha)=\dfrac{1}{n}x^k(\alpha)^Ts^k(\alpha)$, and $x_i^k(\alpha) s_i^k(\alpha)\ge\gamma\mu^k(\alpha)$.
+>
+>​		Set $(x^{k+1}, y^{k+1}, s^{k+1}) = (x^k, y^k, s^k) + \alpha_k (\Delta x^k, \Delta y^k, \Delta s^k)$
+
