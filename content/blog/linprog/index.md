@@ -204,7 +204,7 @@ Therefore, we will introduce an intermediate variable $\mu$ to keep both optimal
 >$$
 >end
 
-However, there is no necessity to compute the full Newton iteration
+However, there is no necessity to compute the full Newton iteration. We can compute one Newton step and change the direction.
 
 >#### Primal-Dual IPM-Practical
 >(Only one iteration for inner Newton step.)
@@ -248,7 +248,7 @@ However, there is no necessity to compute the full Newton iteration
 >$$
 >
 
-The following graph shows the path of convergence.
+The following graph shows the path of convergence. If $\sigma=1$, $\tau=\mu$, the central path converges to $\mu$. If $\sigma=0$, $\tau=0$, the central path may not converge.
 
 <img src="img/4-2.jpg" style="zoom:67%;" />
 
@@ -259,3 +259,15 @@ $$
 \mathcal{N}_2(\theta)=\{(x, y, s)\in\mathcal{F}|\|x\circ s-\mu e\|\le\theta \mu\}\\
 \mathcal{N}_{-\infty}(\gamma)=\{(x, y, s)\in\mathcal{F}|x_is_i\ge\gamma\mu, i=1,2,\cdots,n\}\\
 $$
+We have different path-following methods
+
+- Long-step Path-Following $\rightarrow$ $\mathcal{N}_{-\infty}$
+- Short-step Path-Following \rightarrow$ $\mathcal{N}_{2}$
+
+>#### Long-Step Path-Following IPM
+>
+>Initial State:
+>
+>​		Given $\gamma\in(0, 1)$, $0<\sigma_{min}\le\sigma_{max}<1$, $(x^0, y^0, s^0) \in \mathcal{N}_{-\infty}(\gamma)$
+>
+>
