@@ -271,7 +271,7 @@ We have different path-following methods
 >
 >​		Given $\gamma\in(0, 1)$, $0<\sigma_{min}\le\sigma_{max}<1$, $(x^0, y^0, s^0) \in \mathcal{N}_{-\infty}(\gamma)$
 >
->For k=0, 1, \cdots
+>For $k=0, 1, \cdots$
 >
 >​		Choose $\sigma_k\in[\sigma_{min}, \sigma_{max}]$, $\mu_{k}=\dfrac{1}{n} x^T s$
 >$$
@@ -299,4 +299,81 @@ We have different path-following methods
 >​		We have $\mu^k(\alpha)=\dfrac{1}{n}x^k(\alpha)^Ts^k(\alpha)$, and $x_i^k(\alpha) s_i^k(\alpha)\ge\gamma\mu^k(\alpha)$.
 >
 >​		Set $(x^{k+1}, y^{k+1}, s^{k+1}) = (x^k, y^k, s^k) + \alpha_k (\Delta x^k, \Delta y^k, \Delta s^k)$
+
+However, there are several concerns about this method.
+
+- Can we find positive $\alpha_k$?
+- Can we reduce $\mu^k$?
+
+**Lemma 4.1 (Lemma 14.2 in Numerical Optimization)** If $(x, y, s) \in \mathcal{N}_{-\infty}(\gamma)$, then, $\|\Delta X\Delta S e\|\le2^{-3/2}(1+\dfrac{1}{\gamma})n\mu$.
+
+**Proof**
+
+Note that
+$$
+\|UVe\|\le2^{-3/2}\|u+v\|^2_2
+$$
+Define $D=X^{1/2} S^{-1/2}$. We can also derive $D^{-1}\Delta x+D\Delta s=(XS)^{-1/2}(-XSe+\sigma \mu e)$.
+$$
+\begin{align*}
+\|\Delta X \Delta S e\| &= \|(D^{-1}\Delta X)(D\Delta S)e\|\\
+						&\le 2^{-3/2}\|D^{-1}\Delta x+D\Delta s\|^2\\
+						&= 2^{-3/2}\|(XS)^{-1/2}(-XSe+\sigma \mu e)\|^2\\
+						&= 2^{-3/2}(\left<e, XSe\right>-2\sigma\mu e^Te+\sigma^2\mu^2\sum^n_{i=1}\dfrac{1}{x_is_i})\\
+						&\le 2^{-3/2}(x^Ts-2n\sigma\mu+\sigma^2\mu^2\dfrac{n}{\gamma\mu})\\
+						&=2^{-3/2}\left[1-2\sigma+\dfrac{\sigma^2}{\gamma}\right]n\mu\\
+						&\le 2^{-3/2}(1+1/\gamma)n\mu
+\end{align*}
+$$
+We can also derive that $\Delta x_i^k\Delta s_i^k\ge-|\Delta x_i^k\Delta s_i^k|\ge-\|\Delta X^k\Delta S^ke\|_2\ge-2^{-3/2}(1+1/\gamma)n\mu$. 
+
+**Theorem 4.2 (Theorem 14.3 in Numerical Optimization)** Given $\gamma$, $\sigma_{min}$, $\sigma_{max}$ in algorithm, $\exist \delta>0$ independent of $n$, such that
+$$
+\mu_{k+1}\le (1-\dfrac{\delta}{n})\mu_k
+$$
+**Proof** 
+
+We will first prove that $(x^k(\alpha), y^k(\alpha), s^k(\alpha)) \in \mathcal{N}_{-\infty}(\gamma)$, $\forall \alpha \in\left[0, 2^{3/2}\gamma\dfrac{1-\gamma}{1+\gamma}\dfrac{\sigma_k}{n}\right]$.
+
+This is equivalent to proving
+$$
+s_i^k(\alpha)x_i^k(\alpha)\ge\gamma\dfrac{x^k(\alpha)^Ts^k_i(\alpha)}{n}
+$$
+From the Newton step equations we can derive $s_i^k\Delta x_i^k+x_i^k\Delta s_i^k=-x_i^ks_i^k+\sigma \mu_k$. And since $\Delta x_i^k\Delta s_i^k\ge-2^{-3/2}(1+1/\gamma)n\mu$.
+$$
+\begin{align*}
+x_i^k(\alpha)s_i^k(\alpha)&=(x_i^k+\alpha\Delta x_i^k)(s_i^k+\alpha\Delta s_i^k)\\
+		&=x_i^ks_i^k+\alpha(s_i^k\Delta x_i^k+x_i^k\Delta s_i^k)+\alpha^2\Delta x_i^k\Delta s_i^k\\
+		&=(1-\alpha)x_i^ks_i^k+\alpha\sigma_k\mu_k+\alpha^2\Delta x_i^k\Delta s_i^k\\
+		&\ge \gamma(1-\alpha)\mu_k+\alpha\sigma_k\mu_k-\alpha^22^{-3/2}(1+1/\gamma)n\mu_k
+\end{align*}
+$$
+We also have $\Delta x^T \Delta s=0$, and
+$$
+\begin{align*}
+	\mu_k(\alpha)&=\dfrac{(x+\alpha \Delta x)^T(s+\alpha \Delta s)}{n}\\
+				 &=\mu_k-\alpha(\mu_k-\sigma\mu_k)\\
+				 &=(1-\alpha+\alpha\sigma)\mu_k
+\end{align*}
+$$
+To satisfy $x_i^k(\alpha)s_i^k(\alpha)\ge\gamma\mu_k(\alpha)$, we have to let
+$$
+\gamma(1-\alpha)\mu_k+\alpha\sigma_k\mu_k-\alpha^22^{-3/2}(1+1/\gamma)n\mu_k\ge \gamma(1-\alpha+\alpha\sigma)\mu_k
+$$
+Rearranging this expression, we obtain
+$$
+	\alpha\sigma_k\mu_k(1-\gamma)\ge\alpha^22^{-3/2}n\mu_k(1+1/\gamma)
+$$
+which is
+$$
+\alpha\le\dfrac{2^{3/2}}{n}\sigma_k\gamma\dfrac{1-\gamma}{1+\gamma}
+$$
+We choose $\alpha\in\left(0, \dfrac{2^{3/2}}{n}\sigma_k\gamma\dfrac{1-\gamma}{1+\gamma}\right]$
+$$
+\begin{align*}
+\mu_{k+1} &= (1-\alpha_k(1-\sigma_k))\mu_k\\
+		  &\ge (1-\dfrac{2^{3/2}}{n}\sigma_k(1-\sigma_k)\gamma\dfrac{1-\gamma}{1+\gamma})\mu_k
+\end{align*}
+$$
+If $\delta=\max_{\sigma_k}\left\{2^{3/2}\sigma_k(1-\sigma_k)\gamma\dfrac{1-\gamma}{1+\gamma}\right\}$, we will prove that $\mu_{k+1}\ge(1-\dfrac{\delta}{n})\mu_k$.
 
