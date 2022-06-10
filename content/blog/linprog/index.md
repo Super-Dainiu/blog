@@ -249,7 +249,7 @@ However, there is no necessity to compute the full Newton iteration. We can comp
 >
 >End
 
-The following graph shows the path of convergence. If $\sigma=1$, $\tau=\mu$, the central path converges to $\mu$. If $\sigma=0$, $\tau=0$, the central path may not converge.
+The following graph shows the path of convergence. If $\sigma=1$, $\tau=\mu$, the central path converges to $\mu$. If $\sigma=0$, $\tau=0$, the central path may not converge. We will discuss how to find $\sigma_k$ and $\alpha_k$ in the following section.
 
 <img src="img/4-2.jpg" style="zoom:67%;" />
 
@@ -260,7 +260,7 @@ $$
 \mathcal{N}_2(\theta)=\{(x, y, s)\in\mathcal{F}|\|x\circ s-\mu e\|\le\theta \mu\}\\
 \mathcal{N}_{-\infty}(\gamma)=\{(x, y, s)\in\mathcal{F}|x_is_i\ge\gamma\mu, i=1,2,\cdots,n\}\\
 $$
-We have different path-following methods
+We have different path-following routines. These routines will guarantee us the convergence.
 
 - Long-step Path-Following $\rightarrow$ $\mathcal{N}_{-\infty}$
 - Short-step Path-Following $\rightarrow$ $\mathcal{N}_{2}$
@@ -304,6 +304,8 @@ However, there are several concerns about this method.
 
 - Can we find positive $\alpha_k$?
 - Can we reduce $\mu^k$?
+
+Both answers are YES. We will go through Lemma 4.1 and Theorem 4.2 to prove this.
 
 **Lemma 4.1 (Lemma 14.2 in Numerical Optimization)** If $(x, y, s) \in \mathcal{N}_{-\infty}(\gamma)$, then, $\|\Delta X\Delta S e\|\le2^{-3/2}(1+\dfrac{1}{\gamma})n\mu$.
 
@@ -372,8 +374,11 @@ We choose $\alpha\in\left(0, \dfrac{2^{3/2}}{n}\sigma_k\gamma\dfrac{1-\gamma}{1+
 $$
 \begin{align*}
 \mu_{k+1} &= (1-\alpha_k(1-\sigma_k))\mu_k\\
-		  &\ge (1-\dfrac{2^{3/2}}{n}\sigma_k(1-\sigma_k)\gamma\dfrac{1-\gamma}{1+\gamma})\mu_k
+		  &\le (1-\dfrac{2^{3/2}}{n}\sigma_k(1-\sigma_k)\gamma\dfrac{1-\gamma}{1+\gamma})\mu_k
 \end{align*}
 $$
-If $\delta=\max_{\sigma_k}\left\{2^{3/2}\sigma_k(1-\sigma_k)\gamma\dfrac{1-\gamma}{1+\gamma}\right\}$, we will prove that $\mu_{k+1}\ge(1-\dfrac{\delta}{n})\mu_k$.
+If $\delta=\max_{\sigma_k}\left\{2^{3/2}\sigma_k(1-\sigma_k)\gamma\dfrac{1-\gamma}{1+\gamma}\right\}$, we will prove that $\mu_{k+1}\le(1-\dfrac{\delta}{n})\mu_k$.#
 
+This means we only need $O(n\log1/\epsilon)$ steps to reduce $\mu_k$ to $\epsilon\cdot\mu_0$.
+
+##### Mehrotra Algorithm (1990s)
