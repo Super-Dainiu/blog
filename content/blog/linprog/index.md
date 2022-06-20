@@ -127,11 +127,74 @@ And we can easily derive the corollary.
 
 Recall that at any basic solution, there must be $n$ linearly independent constraints that are active. Furthermore, every basic solution must satisfy the equality constraints $\mathbf{A} \mathbf{x}=\mathbf{b}$, which provides us with $m$ linear independent active constraints. Therefore, there are $n-m$ more constraints from $n$ constraints of $x_i\ge 0$.
 
->Theorem 2.4 Consider the constraints $\mathbf{A x}=\mathbf{b}$ and $\mathbf{x} \geq \mathbf{0}$ and assume that the $m \times n$ matrix $\mathbf{A}$ has linearly independent rows. A vector $\mathbf{x} \in \Re^{n}$ is a basic solution if and only if we have $\mathbf{A} \mathbf{x}=\mathbf{b}$, and there exist indices $B(1), \ldots, B(m)$ such that:
+>**Theorem 1.4** Consider the constraints $\mathbf{A x}=\mathbf{b}$ and $\mathbf{x} \geq \mathbf{0}$ and assume that the $m \times n$ matrix $\mathbf{A}$ has linearly independent rows. A vector $\mathbf{x} \in \Re^{n}$ is a basic solution if and only if we have $\mathbf{A} \mathbf{x}=\mathbf{b}$, and there exist indices $B(1), \ldots, B(m)$ such that:
 >
 >(a) The columns $\mathbf{A}_{B(1)}, \ldots, \mathbf{A}_{B(m)}$ are linearly independent;
 >
 >(b) If $i \neq B(1), \ldots, B(m)$, then $x_{i}=0$.
+
+In this way, we can construct basic feasible solutions in the following way.
+
+>1. Choose $m$ linearly independent columns $\mathbf{A}_{B(1)}, \ldots, \mathbf{A}_{B(m)}$.
+>2. Let $x_{i}=0$ for all $i \neq B(1), \ldots, B(m)$.
+>3. Solve the system of $m$ equations $\mathbf{A} \mathbf{x}=\mathbf{b}$ for the unknowns $x_{B(1)}$, $\ldots, x_{B(m)}$.
+
+We can also obtain an $m \times m$ matrix $\mathbf{B}$, called a basis matrix, by arranging the $m$ basic columns next to each other. We can similarly define a vector $\mathbf{x}_{B}$ with the values of the basic variables. Thus,
+$$
+\mathbf{B}=\left[\begin{array}{cccc}
+\mid & \mid & & \mid \\
+\mathbf{A}_{B(1)} & \mathbf{A}_{B(2)} & \cdots & \mathbf{A}_{B(m)} \\
+\mid & \mid & & \mid
+\end{array}\right], \quad \mathbf{x}_{B}=\left[\begin{array}{c}
+x_{B(1)} \\
+\vdots \\
+x_{B(m)}
+\end{array}\right]
+$$
+The basic variables are determined by solving the equation $\mathbf{B} \mathbf{x}_{B}=\mathbf{b}$ whose unique solution is given by
+$$
+\mathbf{x}_{B}=\mathbf{B}^{-1} \mathbf{b}
+$$
+
+#### Existence of Extreme Points
+
+We need the following definition
+
+>**Definition 1.9** A polyhedron $P \subset \Re^{n}$ contains a line if there exists a vector $\mathbf{x} \in P$ and a nonzero vector $\mathbf{d} \in \Re^{n}$ such that $\mathbf{x}+\lambda \mathbf{d} \in P$ for all scalars $\lambda$.
+
+to formulate the following theorem.
+
+>**Theorem 1.5** Suppose that the polyhedron $P=\left\{\mathbf{x} \in \Re^{n} \mid \mathbf{a}_{i}^{\prime} \mathbf{x} \geq\right.$ $\left.b_{i}, i=1, \ldots, m\right\}$ is nonempty. Then, the following are equivalent:
+>
+>(a) The polyhedron $P$ has at least one extreme point.
+>
+>(b) The polyhedron $P$ does not contain a line.
+>
+>(c) There exist $n$ vectors out of the family $\mathbf{a}_{1}, \ldots, \mathbf{a}_{m}$, which are linearly independent.
+
+Since bounded polyhedron does not contain a line, we will have the following corollary
+
+>**Corollary 1.2** Every nonempty bounded polyhedron and every nonempty polyhedron in standard form has at least one basic feasible solution.
+
+#### Optimality of Extreme Points
+
+#### Miscellaneous
+
+One might be doubtful why $\mathbf{A}$ is always assumed to be full row rank. The following theorem shows that the full row rank assumption on the matrix $\mathbf{A}$ results in no loss of generality.
+
+>**Theorem 1.7** Let $P=\{\mathbf{x} \mid \mathbf{A} \mathbf{x}=\mathbf{b}, \mathbf{x} \geq \mathbf{0}\}$ be a nonempty polyhedron, where $\mathbf{A}$ is a matrix of dimensions $m \times n$, with rows $\mathbf{a}_{1}^{\prime}, \ldots, \mathbf{a}_{m}^{\prime}$. Suppose that $\operatorname{rank}(\mathbf{A})=k<m$ and that the rows $\mathbf{a}_{i_{1}}^{\prime}, \ldots, \mathbf{a}_{i_{k}}^{\prime}$ are linearly independent. Consider the polyhedron
+>$$
+>Q=\left\{\mathbf{x} \mid \mathbf{a}_{i_{1}}^{\prime} \mathbf{x}=b_{i_{1}}, \ldots, \mathbf{a}_{i_{k}}^{\prime} \mathbf{x}=b_{i_{k}}, \mathbf{x} \geq \mathbf{0}\right\}
+>$$
+>Then $Q=P$.
+
+In some cases, the basic feasible solution is degenerate.
+
+<img src="img/1-2.JPG" style="zoom:67%;" />
+
+>**Definition 1.10 (Degeneracy)** Consider the standard form polyhedron $P=\{\mathbf{x} \in$ $\left.\Re^{n} \mid \mathbf{A x}=\mathbf{b}, \mathbf{x} \geq \mathbf{0}\right\}$ and let $\mathbf{x}$ be a basic solution. Let $m$ be the number of rows of $\mathbf{A}$. The vector $\mathbf{x}$ is a degenerate basic solution if more than $n-m$ of the components of $\mathbf{x}$ are zero.
+
+An important comment is that degeneracy is not a pure geometric property. That is to say, a degenerate basic feasible solution under one representation could be nondegenerate under another representation.
 
 ## Interior Point Method
 
