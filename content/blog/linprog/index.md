@@ -6,7 +6,7 @@ description: "Review of Linear Programming"
 
 ## Introduction to LP Problems
 
-#### Standard Form v.s General Form
+#### Standard Form vs General Form
 
 **KEY: equivalence of (S) and (G)**
 
@@ -71,6 +71,34 @@ The convex set also provide some interesting facts.
 >(a) The intersection of convex sets is convex.
 >(b) Every polyhedron is a convex set.
 >(c) A convex combination of a finite number of elements of a convex set also belongs to that set.
+
+#### Extreme Points and Basic Feasible Solutions
+
+Our first definition defines an extreme point of a polyhedron as a point that cannot be expressed as a convex combination of two other elements of the polyhedron. This definition
+is entirely geometric and does not refer to a specific representation of a polyhedron in terms of linear constraints.
+
+>**Definition 1.6 (Extreme Point)** Let $P$ be a polyhedron. A vector $\mathrm{x} \in P$ is an extreme point of $P$ if we cannot find two vectors $y, z \in P$, both different from $\mathbf{x}$, and a scalar $\lambda \in[0,1]$, such that $\mathbf{x}=\lambda \mathbf{y}+(1-\lambda) \mathbf{z}$.
+
+<img src="img/1-1.JPG" style="zoom:67%;" />
+
+To introduce the definition of basic feasible solution, we will first introduce the notation of active set.
+
+>**Definition 1.7 (Active Set)** If a vector $\mathbf{x}^{*}$ satisfies $\mathbf{a}_{i}^{\prime} \mathbf{x}^{*}=b_{i}$ for some $i$ in $M_{1}, M_{2}$, or $M_{3}$, we say that the corresponding constraint is **active** at $\mathbf{x}^{*}$. $I=\left\{i \mid \mathbf{a}_{i}^{\prime} \mathbf{x}^{*}=b_{i}\right\}$ is the set of indices of constraints that are active at $x^*$, or **active set**.
+
+From basic linear algebra knowledge, we can have the following theorem.
+
+>**Theorem 2.2** Let $\mathbf{x}^{*}$ be an element of $\Re^{n}$ and let $I=\left\{i \mid \mathbf{a}_{i}^{\prime} \mathbf{x}^{*}=b_{i}\right\}$ be the active set of $\mathbf{x}^{*}$. Then, the following are equivalent:
+>(a) There exist $n$ vectors in the set $\left\{\mathbf{a}_{i} \mid i \in I\right\}$, which are linearly independent.
+>(b) The span of the vectors $\mathbf{a}_{i}, i \in I$, is all of $\Re^{n}$, that is, every element of $\Re^{n}$ can be expressed as a linear combination of the vectors $\mathbf{a}_{i}, i \in I$.
+>(c) The system of equations $\mathbf{a}_{i}^{\prime} \mathbf{x}=b_{i}, i \in I$, has a unique solution.
+
+We are now ready to provide an algebraic definition of a corner point, as a feasible solution at which there are $n$ linearly independent active constraints. However, note that this procedure has no guarantee of leading to a feasible vector. Basic solution is a totally different notion with basic feasible solution.
+
+>**Definition 1.8 (Basic Solution vs Basic Feasible Solution)** Consider a polyhedron $P$ defined by linear equality and inequality constraints, and let $\mathbf{x}^{*}$ be an element of $\Re^{n}$.
+>(a) The vector $\mathrm{x}^{*}$ is a basic solution if:
+>(i) All equality constraints are active;
+>(ii) Out of the constraints that are active at $\mathbf{x}^{*}$, there are $n$ of them that are linearly independent.
+>(b) If $\mathbf{x}^{*}$ is a basic solution that satisfies all of the constraints, we say that it is a basic feasible solution.
 
 ## Interior Point Method
 
