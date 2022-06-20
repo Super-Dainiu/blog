@@ -69,7 +69,9 @@ The convex set also provide some interesting facts.
 
 >**Theorem 1.1**
 >(a) The intersection of convex sets is convex.
+>
 >(b) Every polyhedron is a convex set.
+>
 >(c) A convex combination of a finite number of elements of a convex set also belongs to that set.
 
 #### Extreme Points and Basic Feasible Solutions
@@ -87,18 +89,38 @@ To introduce the definition of basic feasible solution, we will first introduce 
 
 From basic linear algebra knowledge, we can have the following theorem.
 
->**Theorem 2.2** Let $\mathbf{x}^{*}$ be an element of $\Re^{n}$ and let $I=\left\{i \mid \mathbf{a}_{i}^{\prime} \mathbf{x}^{*}=b_{i}\right\}$ be the active set of $\mathbf{x}^{*}$. Then, the following are equivalent:
+>**Theorem 1.2** Let $\mathbf{x}^{*}$ be an element of $\Re^{n}$ and let $I=\left\{i \mid \mathbf{a}_{i}^{\prime} \mathbf{x}^{*}=b_{i}\right\}$ be the active set of $\mathbf{x}^{*}$. Then, the following are equivalent:
 >(a) There exist $n$ vectors in the set $\left\{\mathbf{a}_{i} \mid i \in I\right\}$, which are linearly independent.
+>
 >(b) The span of the vectors $\mathbf{a}_{i}, i \in I$, is all of $\Re^{n}$, that is, every element of $\Re^{n}$ can be expressed as a linear combination of the vectors $\mathbf{a}_{i}, i \in I$.
+>
 >(c) The system of equations $\mathbf{a}_{i}^{\prime} \mathbf{x}=b_{i}, i \in I$, has a unique solution.
 
 We are now ready to provide an algebraic definition of a corner point, as a feasible solution at which there are $n$ linearly independent active constraints. However, note that this procedure has no guarantee of leading to a feasible vector. Basic solution is a totally different notion with basic feasible solution.
 
 >**Definition 1.8 (Basic Solution vs Basic Feasible Solution)** Consider a polyhedron $P$ defined by linear equality and inequality constraints, and let $\mathbf{x}^{*}$ be an element of $\Re^{n}$.
 >(a) The vector $\mathrm{x}^{*}$ is a basic solution if:
->(i) All equality constraints are active;
->(ii) Out of the constraints that are active at $\mathbf{x}^{*}$, there are $n$ of them that are linearly independent.
+>
+>​	(i) All equality constraints are active;
+>
+>​	(ii) Out of the constraints that are active at $\mathbf{x}^{*}$, there are $n$ of them that are linearly independent.
+>
 >(b) If $\mathbf{x}^{*}$ is a basic solution that satisfies all of the constraints, we say that it is a basic feasible solution.
+
+These two different definitions are, however, meant to capture the same concept geometrically and algebraically. This could be verified by contradiction.
+
+>**Theorem 1.3** Let $P$ be a nonempty polyhedron and let $\mathbf{x}^{*} \in P$. Then, the following are equivalent:
+>(a) $\mathbf{x}^{*}$ is an extreme point;
+>
+>(b) $\mathbf{x}^{*}$ is a basic feasible solution.
+
+And we can easily derive the corollary.
+
+>**Corollary 1.1** Given a finite number of linear inequality constraints, there can only be a finite number of basic or basic feasible solutions.
+
+#### Standard Form Polyhedron
+
+Recall that at any basic solution, there must be $n$ linearly independent constraints that are active. Furthermore, every basic solution must satisfy the equality constraints $\mathbf{A} \mathbf{x}=\mathbf{b}$, which provides us with $m$ linear independent active constraints. 
 
 ## Interior Point Method
 
