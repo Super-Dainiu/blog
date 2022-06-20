@@ -6,11 +6,46 @@ description: "Review of Linear Programming"
 
 ## Introduction to LP Problems
 
+#### Standard Form v.s General Form
+
+**KEY: equivalence of (S) and (G)**
+
+Any linear programming problem, i.e
+$$
+\begin{array}{rll}
+\operatorname{minimize} & \mathbf{c}^{\prime} \mathbf{x} & \\
+\text { subject to } & \mathbf{a}_{i}^{\prime} \mathbf{x} \geq b_{i}, & i \in M_{1}, \\
+& \mathbf{a}_{i}^{\prime} \mathbf{x} \leq b_{i}, & i \in M_{2}, \\
+& \mathbf{a}_{i}^{\prime} \mathbf{x}=b_{i}, & i \in M_{3}, \\
+& x_{j} \geq 0, & j \in N_{1}, \\
+& x_{j} \leq 0, & j \in N_{2} .
+\end{array}
+$$
+can be expressed compactly in both standard form and general form.
+
+>**Definition 1.1.1 (General Form)** A linear programming problem can be written as
+>$$
+>\begin{array}{rll}
+>\operatorname{minimize} & \mathbf{c}^{\prime} \mathbf{x} \\
+>\text { subject to } & \mathbf{A x} \geq \mathbf{b}
+>\end{array}
+>$$
+
+>**Definition 1.1.2 (Standard Form)** A linear programming problem of the form
+>$$
+>\begin{array}{rr}
+>\operatorname{minimize} & \mathbf{c}^{\prime} \mathbf{x} \\
+>\text { subject to } & \mathbf{A x}=\mathbf{b} \\
+>& \mathbf{x} \geq \mathbf{0}
+>\end{array}
+>$$
+>is said to be in standard form.
+
 #### Polyhedron and convex sets
 
 We might as well revisit some definitions in convex optimization.
 
->**Definition 1.1 (Convexity and Concavity)**
+>**Definition 1.2 (Convexity and Concavity)**
 >(a) A function $f: \Re^{n} \mapsto \Re$ is called convex if for every $\mathbf{x}, \mathbf{y} \in \Re^{n}$, and every $\lambda \in[0,1]$, we have
 >$$
 >f(\lambda \mathbf{x}+(1-\lambda) \mathbf{y}) \leq \lambda f(\mathbf{x})+(1-\lambda) f(\mathbf{y})
@@ -20,9 +55,22 @@ We might as well revisit some definitions in convex optimization.
 >f(\lambda \mathbf{x}+(1-\lambda) \mathbf{y}) \geq \lambda f(\mathbf{x})+(1-\lambda) f(\mathbf{y})
 >$$
 
-We also start with the formal definition of a polyhedron.
+We also start with the formal definition of a polyhedron as well as a convex set.
 
->**Definition 1.2 (Polyhedron)** A polyhedron is a set that can be described in the form $\left\{\mathbf{x} \in \Re^{n} \mid \mathbf{A} \mathbf{x} \geq \mathbf{b}\right\}$, where $\mathbf{A}$ is an $m \times n$ matrix and $\mathbf{b}$ is a vector in $\Re^{m}$.
+>**Definition 1.3 (Polyhedron)** A polyhedron is a set that can be described in the form $\left\{\mathbf{x} \in \Re^{n} \mid \mathbf{A} \mathbf{x} \geq \mathbf{b}\right\}$, where $\mathbf{A}$ is an $m \times n$ matrix and $\mathbf{b}$ is a vector in $\Re^{m}$.
+
+>**Definition 1.4 (Convex Set)** A set $S \subset \Re^{n}$ is convex if for any $\mathbf{x}, \mathbf{y} \in S$, and any $\lambda \in[0,1]$, we have $\lambda \mathbf{x}+(1-\lambda) \mathbf{y} \in S$.
+
+A polyhedron can either "extend to infinity," or can be confined in a finite region. The definition that follows refers to this distinction.
+
+>**Definition 1.5 (Boundedness)** A set $S \subset \Re^{n}$ is bounded if there exists a constant $K$ such that the absolute value of every component of every element of $S$ is less than or equal to $K$.
+
+The convex set also provide some interesting facts.
+
+>**Theorem 1.1**
+>(a) The intersection of convex sets is convex.
+>(b) Every polyhedron is a convex set.
+>(c) A convex combination of a finite number of elements of a convex set also belongs to that set.
 
 ## Interior Point Method
 
