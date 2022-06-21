@@ -308,6 +308,24 @@ Q=\left[\begin{array}{ccccc}1 & & -\frac{u_{1}}{u_l} & & \\ & \ddots & \vdots & 
 $$
  This will reduce the operation per iteration to $O(m^2+mn)$.
 
+#### Simplex Method (Tableau)
+
+Another implementation of simplex method is called full tableau. Here, instead of maintaining and updating the matrix $\mathbf{B}^{-1}$, we maintain and update the $m \times(n+1)$ matrix
+$$
+\mathbf{B}^{-1}[\mathbf{b} \mid \mathbf{A}]
+$$
+with columns $\mathbf{B}^{-1} \mathbf{b}$ and $\mathbf{B}^{-1} \mathbf{A}_{1}, \ldots, \mathbf{B}^{-1} \mathbf{A}_{n}$. This matrix is called the simplex tableau. Note that the column $\mathbf{B}^{-1} \mathbf{b}$, called the zeroth column, contains the values of the basic variables.
+
+It is customary to augment the simplex tableau by including a top row, to be referred to as the zeroth row. The entry at the top left corner contains the value $-\mathbf{c}_{B}^{\prime} \mathbf{x}_{B}$, which is the negative of the current cost. The rest of the zeroth row is the row vector of reduced costs, that is, the vector $\overline{\mathbf{c}}^{\prime}=\mathbf{c}^{\prime}-\mathbf{c}_{B}^{\prime} \mathbf{B}^{-1} \mathbf{A}$. Thus, the structure of the tableau is:
+$$
+\begin{array}{|c|c|}
+\hline-\mathbf{c}_{B}^{\prime} \mathbf{B}^{-1} \mathbf{b} & \mathbf{c}^{\prime}-\mathbf{c}_{B}^{\prime} \mathbf{B}^{-1} \mathbf{A} \\
+\hline \mathbf{B}^{-1} \mathbf{b} & \mathbf{B}^{-1} \mathbf{A} \\
+\hline
+\end{array}
+$$
+
+#### Complexity
 
 $$
 \begin{array}{|l|c|c|}
@@ -318,6 +336,30 @@ $$
 \hline
 \end{array}
 $$
+
+#### Finding an Initial Basic Feasible Solution (Two-Phase Algorithm)
+
+Consider the problem
+$$
+\begin{array}{rll}
+\operatorname{minimize} & \mathbf{c}^{\prime} \mathbf{x} \\
+\text { subject to } & \mathbf{A} \mathbf{x}=\mathbf{b} \\
+& \mathbf{x} \geq \mathbf{0}
+\end{array}
+$$
+By possibly multiplying some of the equality constraints by $-1$, we can assume, without loss of generality, that $\mathbf{b} \geq \mathbf{0}$. We now introduce a vector $\mathbf{y} \in \Re^{m}$ of artificial variables and use the simplex method to solve the auxiliary problem
+$$
+\begin{array}{rll}
+\operatorname{minimize} & y_{1}+y_{2}+\cdots+y_{m} \\
+\text { subject to } & \mathbf{A} \mathbf{x} +\mathbf{y} =\mathbf{b} \\
+& \mathbf{x} \geq \mathbf{0}\\
+& \mathbf{y} \geq 0 .
+\end{array}
+$$
+
+Initialization is easy for the auxiliary problem: by letting $\mathbf{x}=\mathbf{0}$ and $\mathbf{y}=\mathbf{b}$, we have a basic feasible solution and the corresponding basis matrix is the identity.
+
+If $\mathbf{x}$ is a feasible solution to the original problem, this choice of $\mathbf{x}$ together with $\mathbf{y}=\mathbf{0}$, yields a zero cost solution to the auxiliary problem. Therefore, if the optimal cost in the auxiliary problem is nonzero, we conclude that the original problem is infeasible. Otherwise, the solution $\mathbf{x}$ will be a basic feasible solution.
 
 ## Interior Point Method
 
