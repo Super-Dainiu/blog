@@ -43,6 +43,8 @@ can be expressed compactly in both standard form and general form.
 
 #### Polyhedron and convex sets
 
+**KEY: definition of polyhedron; definition of convex set.**
+
 We might as well revisit some definitions in convex optimization.
 
 >**Definition 1.2 (Convexity and Concavity)**
@@ -77,6 +79,8 @@ The convex set also provide some interesting facts.
 >(c) A convex combination of a finite number of elements of a convex set also belongs to that set.
 
 #### Extreme Points and Basic Feasible Solutions
+
+**KEY: BFS = extreme point; geometric property of extreme point.**
 
 Our first definition defines an extreme point of a polyhedron as a point that cannot be expressed as a convex combination of two other elements of the polyhedron. This definition
 is entirely geometric and does not refer to a specific representation of a polyhedron in terms of linear constraints.
@@ -125,6 +129,8 @@ And we can easily derive the corollary.
 
 #### Standard Form Polyhedron
 
+**KEY: Theorem 1.4.**
+
 Recall that at any basic solution, there must be $n$ linearly independent constraints that are active. Furthermore, every basic solution must satisfy the equality constraints $\mathbf{A} \mathbf{x}=\mathbf{b}$, which provides us with $m$ linear independent active constraints. Therefore, there are $n-m$ more constraints from $n$ constraints of $x_i\ge 0$.
 
 >**Theorem 1.4** Consider the constraints $\mathbf{A x}=\mathbf{b}$ and $\mathbf{x} \geq \mathbf{0}$ and assume that the $m \times n$ matrix $\mathbf{A}$ has linearly independent rows. A vector $\mathbf{x} \in \Re^{n}$ is a basic solution if and only if we have $\mathbf{A} \mathbf{x}=\mathbf{b}$, and there exist indices $B(1), \ldots, B(m)$ such that:
@@ -158,6 +164,8 @@ $$
 
 #### Existence of Extreme Points
 
+**KEY: has extreme point $\leftrightarrow$ does not contain a line; a line has at most two intersection with a polyhedron.**
+
 We need the following definition
 
 >**Definition 1.9** A polyhedron $P \subset \Re^{n}$ contains a line if there exists a vector $\mathbf{x} \in P$ and a nonzero vector $\mathbf{d} \in \Re^{n}$ such that $\mathbf{x}+\lambda \mathbf{d} \in P$ for all scalars $\lambda$.
@@ -172,17 +180,29 @@ to formulate the following theorem.
 >
 >(c) There exist $n$ vectors out of the family $\mathbf{a}_{1}, \ldots, \mathbf{a}_{m}$, which are linearly independent.
 
-Since bounded polyhedron does not contain a line, we will have the following corollary
+Since a bounded polyhedron does not contain a line, we will have the following corollary
 
 >**Corollary 1.2** Every nonempty bounded polyhedron and every nonempty polyhedron in standard form has at least one basic feasible solution.
 
 #### Optimality of Extreme Points
 
+If $P=\left\{\mathbf{x} \in \Re^{n} \mid \mathbf{A} \mathbf{x} \geq \mathbf{b}\right\}$ is the feasible set and $v$ is the optimal value of the cost $\mathbf{c}^{\prime} \mathbf{x}$. Then, $Q=\left\{\mathbf{x} \in \Re^{n} \mid \mathbf{A} \mathbf{x} \geq \mathbf{b}, \mathbf{c}^{\prime} \mathbf{x}=v\right\}$ is also a polyhedron. With this, we can prove the following theorem that, as long as a linear programming problem has an optimal solution and as long as the feasible set has at least one extreme point, we can always find an optimal solution within the set of extreme points of the feasible set .
+
+>**Theorem 1.6** Consider the linear programming problem of minimizing $\mathbf{c}^{\prime} \mathbf{x}$ over a polyhedron $P$. Suppose that $P$ has at least one extreme point and that there exists an optimal solution. Then, there exists an optimal solution which is an extreme point of $P$.
+
+A stronger result shows that the existence of an optimal solution can be taken for granted, as long as the optimal cost is finite.
+
+>**Theorem 1.7** Consider the linear programming problem of minimizing $\mathbf{c}^{\prime} \mathbf{x}$ over a polyhedron $P$. Suppose that $P$ has at least one extreme point. Then, either the optimal cost is equal to $-\infty$, or there exists an extreme point which is optimal.
+
+As any linear programming problem can be transformed into an equivalent problem in standard form, we will have the following corollary.
+
+>**Corollary 1.3** Consider the linear programming problem of minimizing $\mathbf{c}^{\prime} \mathbf{x}$ over a nonempty polyhedron. Then, either the optimal cost is equal to $-\infty$ or there exists an optimal solution.
+
 #### Miscellaneous
 
 One might be doubtful why $\mathbf{A}$ is always assumed to be full row rank. The following theorem shows that the full row rank assumption on the matrix $\mathbf{A}$ results in no loss of generality.
 
->**Theorem 1.7** Let $P=\{\mathbf{x} \mid \mathbf{A} \mathbf{x}=\mathbf{b}, \mathbf{x} \geq \mathbf{0}\}$ be a nonempty polyhedron, where $\mathbf{A}$ is a matrix of dimensions $m \times n$, with rows $\mathbf{a}_{1}^{\prime}, \ldots, \mathbf{a}_{m}^{\prime}$. Suppose that $\operatorname{rank}(\mathbf{A})=k<m$ and that the rows $\mathbf{a}_{i_{1}}^{\prime}, \ldots, \mathbf{a}_{i_{k}}^{\prime}$ are linearly independent. Consider the polyhedron
+>**Theorem 1.8** Let $P=\{\mathbf{x} \mid \mathbf{A} \mathbf{x}=\mathbf{b}, \mathbf{x} \geq \mathbf{0}\}$ be a nonempty polyhedron, where $\mathbf{A}$ is a matrix of dimensions $m \times n$, with rows $\mathbf{a}_{1}^{\prime}, \ldots, \mathbf{a}_{m}^{\prime}$. Suppose that $\operatorname{rank}(\mathbf{A})=k<m$ and that the rows $\mathbf{a}_{i_{1}}^{\prime}, \ldots, \mathbf{a}_{i_{k}}^{\prime}$ are linearly independent. Consider the polyhedron
 >$$
 >Q=\left\{\mathbf{x} \mid \mathbf{a}_{i_{1}}^{\prime} \mathbf{x}=b_{i_{1}}, \ldots, \mathbf{a}_{i_{k}}^{\prime} \mathbf{x}=b_{i_{k}}, \mathbf{x} \geq \mathbf{0}\right\}
 >$$
@@ -195,6 +215,109 @@ In some cases, the basic feasible solution is degenerate.
 >**Definition 1.10 (Degeneracy)** Consider the standard form polyhedron $P=\{\mathbf{x} \in$ $\left.\Re^{n} \mid \mathbf{A x}=\mathbf{b}, \mathbf{x} \geq \mathbf{0}\right\}$ and let $\mathbf{x}$ be a basic solution. Let $m$ be the number of rows of $\mathbf{A}$. The vector $\mathbf{x}$ is a degenerate basic solution if more than $n-m$ of the components of $\mathbf{x}$ are zero.
 
 An important comment is that degeneracy is not a pure geometric property. That is to say, a degenerate basic feasible solution under one representation could be nondegenerate under another representation.
+
+## Simplex Method
+
+#### Optimality conditions
+
+Suppose that we are at a point $\mathbf{x} \in P$ and that we contemplate moving away from $\mathbf{x}$, in the direction of a vector $\mathbf{d} \in \Re^{n}$. Clearly, we should only consider those choices of $\mathbf{d}$ that do not immediately take us outside the feasible set.
+
+<img src="img/2-1.JPG" style="zoom:67%;" />
+
+>**Definition 2.1 (Feasible Direction)** Let $\mathrm{x}$ be an element of a polyhedron $P$. A vector $\mathbf{d} \in \Re^{n}$ is said to be a **feasible direction** at $\mathrm{x}$, if there exists a positive scalar $\theta$ for which $\mathbf{x}+\theta \mathbf{d} \in P$.
+
+Given that we are only interested in feasible solutions, we require $\mathbf{A}(\mathbf{x}+\theta \mathbf{d})=\mathbf{b}$, and since $\mathbf{x}$ is feasible, we also have $\mathbf{A} \mathbf{x}=\mathbf{b}$. Thus, for the equality constraints to be satisfied for $\theta>0$, we need $\mathbf{A d}=\mathbf{0}$. If we want to move to adjacent extreme point, it must satisfy the condition that $d_{j}=1$, and $d_{i}=0$ for all other non-basic indices $i$. Then,
+$$
+\mathbf{0}=\mathbf{A d}=\sum_{i=1}^{n} \mathbf{A}_{i} d_{i}=\sum_{i=1}^{m} \mathbf{A}_{B(i)} d_{B(i)}+\mathbf{A}_{j}=\mathbf{B d}_{B}+\mathbf{A}_{j} .
+$$
+Since the basis matrix $\mathbf{B}$ is invertible, we obtain
+$$
+\mathbf{d}_{B}=-\mathbf{B}^{-1} \mathbf{A}_{j} \text {. }
+$$
+
+>**Definition 2.2 (Reduced Cost)** Let $\mathbf{x}$ be a basic solution, let $\mathbf{B}$ be an associated basis matrix, and let $\mathbf{c}_{B}$ be the vector of costs of the basic variables. For each $j$, we define the **reduced cost** $\bar{c}_{j}$ of the variable $x_{j}$ according to the formula
+>$$
+>\bar{c}_{j}=c_{j}-\mathbf{c}_{B}^{\prime} \mathbf{B}^{-1} \mathbf{A}_{j}
+>$$
+
+With reduced cost, we can provide optimality conditions of linear programming.
+
+>**Theorem 2.1** Consider a basic feasible solution $\mathrm{x}$ associated with a basis matrix $\mathbf{B}$, and let $\overline{\mathbf{c}}$ be the corresponding vector of reduced costs.
+>
+>(a) If $\overline{\mathbf{c}} \geq \mathbf{0}$, then $\mathbf{x}$ is optimal.
+>
+>(b) If $\mathbf{x}$ is optimal and nondegenerate, then $\overline{\mathbf{c}} \geq \mathbf{0}$.
+>
+>**Proof.**
+>
+>(a) We assume that $\overline{\mathbf{c}} \geq \mathbf{0}$, we let $\mathbf{y}$ be an arbitrary feasible solution, and we define $\mathbf{d}=\mathbf{y}-\mathbf{x}$. Feasibility implies that $\mathbf{A x}=\mathbf{A y}=\mathbf{b}$ and, therefore, $\mathbf{A d}=\mathbf{0}$. The latter equality can be rewritten in the form
+>$$
+>\mathbf{B d}_{B}+\sum_{i \in N} \mathbf{A}_{i} d_{i}=\mathbf{0}
+>$$
+>where $N$ is the set of indices corresponding to the nonbasic variables under the given basis. Since B is invertible, we obtain
+>$$
+>\mathbf{d}_{B}=-\sum_{i \in N} \mathbf{B}^{-1} \mathbf{A}_{i} d_{i}
+>$$
+>and
+>$$
+>\mathbf{c}^{\prime} \mathbf{d}=\mathbf{c}_{B}^{\prime} \mathbf{d}_{B}+\sum_{i \in N} c_{i} d_{i}=\sum_{i \in N}\left(c_{i}-\mathbf{c}_{B}^{\prime} \mathbf{B}^{-1} \mathbf{A}_{i}\right) d_{i}=\sum_{i \in N} \bar{c}_{i} d_{i}
+>$$
+>For any nonbasic index $i \in N$, we must have $x_{i}=0$ and, since $\mathbf{y}$ is feasible, $y_{i} \geq 0$. Thus, $d_{i} \geq 0$ and $\bar{c}_{i} d_{i} \geq 0$, for all $i \in N$. We conclude that $\mathbf{c}^{\prime}(\mathbf{y}-\mathbf{x})=\mathbf{c}^{\prime} \mathbf{d} \geq 0$, and since $\mathbf{y}$ was an arbitrary feasible solution, $\mathbf{x}$ is optimal.
+>
+>(b) Suppose that $\mathrm{x}$ is a nondegenerate basic feasible solution and that $\bar{c}_{j}<0$ for some $j$. Since the reduced cost of a basic variable is always zero, $x_{j}$ must be a non-basic variable and $\bar{c}_{j}$ is the rate of cost change along the $j$ th basic direction. Since $\mathrm{x}$ is nondegenerate, the $j$ th basic direction is a feasible direction of cost decrease, as discussed earlier. By moving in that direction, we obtain feasible solutions whose cost is less than that of $\mathbf{x}$, and $\mathbf{x}$ is not optimal.
+
+#### Simplex Method (Naive)
+
+>#### An iteration of the simplex method
+>
+>1. In a typical iteration, we start with a basis consisting of the basic columns $\mathbf{A}_{B(1)}, \ldots, \mathbf{A}_{B(m)}$, and an associated basic feasible solution $\mathrm{x}$.
+>2. Compute the reduced costs $\bar{c}_{j}=c_{j}-\mathbf{c}_{B}^{\prime} \mathbf{B}^{-1} \mathbf{A}_{j}$ for all non-basic indices $j$. If they are all nonnegative, the current basic feasible solution is optimal, and the algorithm terminates; else, choose some $j$ for which $\bar{c}_{j}<0$.
+>3. Compute $\mathbf{u}=-\mathbf{d_B}=\mathbf{B}^{-1} \mathbf{A}_{j}$. If no component of $\mathbf{u}$ is positive, we have $\theta^{*}=\infty$, the optimal cost is $-\infty$, and the algorithm terminates.
+>4. If some component of $\mathbf{u}$ is positive, let
+>$$
+>\theta^{*}=\min _{\left\{i=1, \ldots, m \mid u_{i}>0\right\}} \frac{x_{B(i)}}{u_{i}} .
+>$$
+>5. Let $\ell$ be such that $\theta^{*}=x_{B(\ell)} / u_{\ell}$. Form a new basis by replacing $\mathbf{A}_{B(\ell)}$ with $\mathbf{A}_{j}$. If $\mathbf{y}$ is the new basic feasible solution, the values of the new basic variables are $y_{j}=\theta^{*}$ and $y_{B(i)}=x_{B(i)}-\theta^{*} u_{i}$, $i \neq \ell$.
+
+If we define $\bar{B}(i)= \begin{cases}B(i), & i \neq \ell \\ j, & i=\ell,\end{cases}$ which is the new basis of the new basic feasible solution. This can be verified by the following theorem.
+
+>**Theorem 2.2**
+>
+>(a) The columns $\mathbf{A}_{B(i)}, i \neq \ell$, and $\mathbf{A}_{j}$ are linearly independent and, therefore, $\overline{\mathbf{B}}$ is a basis matrix.
+>
+>(b) The vector $\mathbf{y}=\mathbf{x}+\theta^{*} \mathbf{d}$ is a basic feasible solution associated with the basis matrix $\overline{\mathbf{B}}$.
+
+The problem of this naive implementation is that the matrix inverse has $O(n^3)$ complexity, thus resulting in $O(m^3 + mn)$ computational effort per iteration. Nevertheless, simplex method is guaranteed convergence.
+
+>**Theorem 2.3 (Convergence of Simplex Method)** Assume that the feasible set is nonempty and that every basic feasible solution is nondegenerate. Then, the simplex method terminates after a finite number of iterations. At termination, there are the following two possibilities:
+>
+>(a) We have an optimal basis $\mathbf{B}$ and an associated basic feasible solution which is optimal.
+>
+>(b) We have found a vector $\mathbf{d}$ satisfying $\mathbf{A d}=\mathbf{0}, \mathbf{d} \geq \mathbf{0}$, and $\mathbf{c}^{\prime} \mathbf{d}<0$, and the optimal cost is $-\infty$.
+
+#### Simplex Method (Revised)
+
+Notice that since $\mathbf{B}^{-1} \mathbf{B}=\mathbf{I}$, we have the property that $\mathbf{B}^{-1} \mathbf{A}_{B(i)}$ is the $i$ th unit vector $\mathbf{e}_{i}$. Using this observation, we have
+$$
+\mathbf{B}^{-1} \overline{\mathbf{B}}=\left[\begin{array}{ccccccc}\mid & & \mid & \mid & \mid & & \mid \\ \mathbf{e}_{1} & \cdots & \mathbf{e}_{\ell-1} & \mathbf{u} & \mathbf{e}_{\ell+1} & \cdots & \mathbf{e}_{m} \\ \mid & & \mid & \mid & \mid & & \mid\end{array}\right]\\
+=\left[\begin{array}{ccccc}1 & & u_{1} & & \\ & \ddots & \vdots & & \\ & & u_{\ell} & & \\ & & \vdots & \ddots & \\ & & u_{m} & & 1\end{array}\right] = \mathbf{Q}^{-1}
+$$
+where $\mathbf{u}=-\mathbf{d_B}=\mathbf{B}^{-1} \mathbf{A}_{j}$. Since the result is the identity, we have $\mathbf{Q B}{ }^{-1} \overline{\mathbf{B}}=\mathbf{I}$, which yields $\mathbf{Q} \mathbf{B}^{-1}=\overline{\mathbf{B}}^{-1}$. We can update $\mathbf{B}^{-1}$ to $\overline{\mathbf{B}}^{-1}$ by row operations with $\mathbf{Q}$.
+$$
+Q=\left[\begin{array}{ccccc}1 & & -\frac{u_{1}}{u_l} & & \\ & \ddots & \vdots & & \\ & & \frac{1}{u_{\ell}} & & \\ & & \vdots & \ddots & \\ & & -\frac{u_{1}}{u_l} & & 1\end{array}\right]
+$$
+ This will reduce the operation per iteration to $O(m^2+mn)$.
+
+
+$$
+\begin{array}{|l|c|c|}
+\hline & \text { Full tableau } & \text { Revised simplex } \\
+\hline \text { Memory } & O(m n) & O\left(m^{2}\right) \\
+\hline \text { Worst-case time } & O(m n) & O(m n) \\
+\hline \text { Best-case time } & O(m n) & O\left(m^{2}\right) \\
+\hline
+\end{array}
+$$
 
 ## Interior Point Method
 
