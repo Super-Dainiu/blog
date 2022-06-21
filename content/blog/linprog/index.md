@@ -220,6 +220,8 @@ An important comment is that degeneracy is not a pure geometric property. That i
 
 #### Optimality conditions
 
+**KEY: feasible direction; **
+
 Suppose that we are at a point $\mathbf{x} \in P$ and that we contemplate moving away from $\mathbf{x}$, in the direction of a vector $\mathbf{d} \in \Re^{n}$. Clearly, we should only consider those choices of $\mathbf{d}$ that do not immediately take us outside the feasible set.
 
 <img src="img/2-1.JPG" style="zoom:67%;" />
@@ -360,6 +362,68 @@ $$
 Initialization is easy for the auxiliary problem: by letting $\mathbf{x}=\mathbf{0}$ and $\mathbf{y}=\mathbf{b}$, we have a basic feasible solution and the corresponding basis matrix is the identity.
 
 If $\mathbf{x}$ is a feasible solution to the original problem, this choice of $\mathbf{x}$ together with $\mathbf{y}=\mathbf{0}$, yields a zero cost solution to the auxiliary problem. Therefore, if the optimal cost in the auxiliary problem is nonzero, we conclude that the original problem is infeasible. Otherwise, the solution $\mathbf{x}$ will be a basic feasible solution.
+
+## Dual Simplex Method
+
+#### The Dual Problem
+
+Let $\mathbf{A}$ be a matrix with rows $\mathbf{a}_{i}^{\prime}$ and columns $\mathbf{A}_{j}$. Given a primal problem with the structure shown on the left, its dual is defined to be the maximization problem shown on the right:
+$$
+\begin{array}{|c|c||c|c|}
+\hline \text { PRIMAL } & \text { minimize } & \text { maximize } & \text { DUAL } \\
+\hline & \geq b_{i} & \geq 0 & \\
+\text { constraints } & \leq b_{i} & \leq 0 & \text { variables } \\
+& =b_{i} & \text { free } & \\
+ & \geq 0 & \leq c_{j} & \\
+\text { variables }& \leq 0 & \geq c_{j} & \text { constraints } \\
+& \text { free } & =c_{j} & \\
+\hline
+\end{array}
+$$
+An interesting fact from the above table is
+
+>**Theorem 3.1** If we transform the dual into an equivalent minimization problem and then form its dual, we obtain a problem equivalent to the original problem.
+
+And this theorem can be even stronger.
+
+>**Theorem 3.2** Suppose that we have transformed a linear programming problem $\Pi_{1}$ to another linear programming problem $\Pi_{2}$, by a sequence of transformations of the following types:
+>
+>(a) Replace a free variable with the difference of two nonnegative variables.
+>
+>(b) Replace an inequality constraint by an equality constraint involving a nonnegative slack variable.
+>
+>(c) If some row of the matrix $\mathbf{A}$ in a feasible standard form problem is a linear combination of the other rows, eliminate the corresponding equality constraint.
+>
+>Then, the duals of $\Pi_{1}$ and $\Pi_{2}$ are equivalent, i.e., they are either both infeasible, or they have the same optimal cost.
+
+#### Duality Theorem
+
+We have discussed too much duality theorems in convex optimization course, so I will just list out several theorems for reference.
+
+>**Theorem 3.3 (Weak duality)** If $\mathrm{x}$ is a feasible solution to the primal problem and $\mathbf{p}$ is a feasible solution to the dual problem, then
+>$$
+>\mathbf{p}^{\prime} \mathbf{b} \leq \mathbf{c}^{\prime} \mathbf{x}
+>$$
+
+>**Theorem 3.4 (Strong duality)** If a linear programming problem has an optimal solution, so does its dual, and the respective optimal costs are equal.
+
+>**Theorem 3.5 (Complementary slackness)** Let $x$ and $\mathbf{p}$ be feasible solutions to the primal and the dual problem, respectively. The vectors $\mathbf{x}$ and $\mathbf{p}$ are optimal solutions for the two respective problems if and only if:
+>$$
+>\begin{aligned}
+>p_{i}\left(\mathbf{a}_{i}^{\prime} \mathbf{x}-b_{i}\right)=0, & & \forall i \\
+>\left(c_{j}-\mathbf{p}^{\prime} \mathbf{A}_{j}\right) x_{j}=0, & & \forall j
+>\end{aligned}
+>$$
+
+#### Dual Simplex Method
+
+>#### An iteration of the dual simplex method
+>
+>1. A typical iteration starts with the tableau associated with a basis matrix $\mathbf{B}$ and with all reduced costs nonnegative.
+>2. Examine the components of the vector $\mathbf{B}^{-1} \mathbf{b}$ in the zeroth column of the tableau. If they are all nonnegative, we have an optimal basic feasible solution and the algorithm terminates; else, choose some $\ell$ such that $x_{B(\ell)}<0$.
+>3. Consider the $\ell$ th row of the tableau, with elements $x_{B(\ell)}, v_{1}, \ldots$, $v_{n}$ (the pivot row). If $v_{i} \geq 0$ for all $i$, then the optimal dual cost is $+\infty$ and the algorithm terminates.
+>4. For each $i$ such that $v_{i}<0$, compute the ratio $\bar{c}_{i} /\left|v_{i}\right|$ and let $j$ be the index of a column that corresponds to the smallest ratio. The column $\mathbf{A}_{B(\ell)}$ exits the basis and the column $\mathbf{A}_{j}$ takes its place.
+>5. Add to each row of the tableau a multiple of the $\ell$ th row (the pivot row) so that $v_{j}$ (the pivot element) becomes 1 and all other entries of the pivot column become 0 .
 
 ## Interior Point Method
 
