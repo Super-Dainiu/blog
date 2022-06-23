@@ -4,6 +4,110 @@ date: "2022-06-23"
 description: "Cheatsheet of Medical Image Processing"
 ---
 
+## Reconstruction
+
+### Fourier transform
+
+- 1D FT: $\hat{f}(w)=\mathcal{F}(f)=\int_{-\infty}^{\infty} f(x) e^{-j 2 \pi \omega x} d x$
+- 1D IFT: $f(x)=\mathcal{F}^{-1}(\hat{f})=\int_{-\infty}^{\infty} \hat{f}(\omega) e^{j 2 \pi \omega x} d \omega$
+- 2D FT: $\hat{f}(u, v)=\mathcal{F}(f)=\iint_{-\infty}^{\infty} f(x, y) e^{-j 2 \pi(u x+v y)} d x d y$
+- 2D IFT: $f(x, y)=\mathcal{F}^{-1}(\hat{f})=\iint_{-\infty}^{\infty} \hat{f}(u, v) e^{j 2 \pi(u x+v y)} d u d v$
+
+Properties:
+
+- Linearity
+  $$
+  \mathcal{F}\{a f(x, y)+b g(x, y)\}=a \mathcal{F}(f)+b \mathcal{F}(g)
+  $$
+
+- Scaling
+
+$$
+\mathcal{F}\{f(a x, b y)\}=\frac{1}{|a b|} \hat{f}\left(\frac{u}{a}, \frac{v}{b}\right)
+$$
+
+- Shifting / Translation
+
+$$
+\mathcal{F}\{f(x-a, y-b)\}=e^{-j 2 \pi(a u+b v)} \hat{f}(u, v)
+$$
+
+- Differentiation
+
+$$
+\begin{aligned}
+\mathcal{F}\left(\frac{\partial}{\partial x} f\right) &=j 2 \pi u \hat{f}(u, v) \\
+\mathcal{F}\left(\frac{\partial}{\partial y} f\right) &=j 2 \pi v \hat{f}(u, v) \\
+\mathcal{F}\left(\frac{\partial^{2}}{\partial x \partial y} f\right) &=-4 \pi^{2} u v \hat{f}(u, v) \\
+\mathcal{F}\left(\nabla^{2} f\right) &=-4 \pi^{2}\left(u^{2}+v^{2}\right) \hat{f}(u, v)
+\end{aligned}
+$$
+
+- Rotation
+
+$$
+\mathcal{F}(f(x \cos \theta-y \sin \theta, x \sin \theta+y \cos \theta))
+=\hat{f}(u \sin \theta-v \sin \theta, u \sin \theta+v \cos \theta)
+$$
+
+### Convolution
+
+- Commutativity
+
+$$
+f * g=g * f
+$$
+- Associativity
+
+$$
+f *(g * h)=(f * g) * h
+$$
+- Distributivity
+
+$$
+f *(g+h)=f * g+f * h
+$$
+- Differentiation $(\partial \eta$ is directional derivative along $\eta$ )
+
+$$
+\partial_{\eta}(f * g)=\partial_{\eta} f * g=f * \partial_{\eta} g
+$$
+
+Convolution Theorem
+$$
+\mathcal{F}\{f*g\}(\xi)=\hat{f}(\xi)\hat{g}(\xi)
+$$
+
+### FT examples
+
+2D Gaussian
+$$
+G_{\sigma}(x, y) \stackrel{\mathcal{F}}{\longleftrightarrow} e^{-2 \pi^{2} \sigma^{2}\left(u^{2}+v^{2}\right)}
+$$
+Delta function
+$$
+\delta(u-a, v-b) \stackrel{\mathcal{F}}{\longleftrightarrow} e^{j2 \pi\left(xa+yb\right)}
+$$
+Rectangular function
+$$
+\operatorname{rect}(x, y)= \begin{cases}1, & (x, y) \in\left[-\frac{1}{2}, \frac{1}{2}\right] \times\left[-\frac{1}{2}, \frac{1}{2}\right] \\ 0, & \text { otherwise }\end{cases}
+$$
+$$
+\operatorname{rect}(x, y) \stackrel{\mathcal{F}}{\longleftrightarrow} \operatorname{sinc}(\pi u) \operatorname{sinc}(\pi v)\\
+\operatorname{sinc}(x)=\frac{\sin (x)}{x}
+$$
+Comb function
+$$
+\mathrm{\Pi I}_{\Delta x, \Delta y}(x, y)=\sum_{m=-\infty}^{\infty} \sum_{n=-\infty}^{\infty} \delta(x-m \Delta x, y-n \Delta y)
+$$
+$$
+\mathrm{\Pi I}_{\Delta x, \Delta y}(x, y) \stackrel{\mathcal{F}}{\longleftrightarrow} \frac{1}{\Delta x \Delta y} \mathrm{\Pi I}_{\frac{1}{\Delta x} \frac{1}{\Delta y}}(u, v)
+$$
+
+<img src="img\4.JPG" style="zoom:67%;" />
+
+
+
 ## Enhancement
 
 ### Filtering
@@ -192,3 +296,68 @@ $$
 \end{aligned}
 $$
 
+### Multi-resolution search
+
+<img src="img/3.JPG" style="zoom:67%;" />
+
+### Phase correlation
+
+$$
+\begin{aligned}
+&\text { Input: I, J }\\
+&\qquad\hat{I}(u, v)=\mathcal{F}(I(x, y)) \\
+&\qquad\hat{J}(u, v)=\mathcal{F}(J(x, y)) \\
+&\qquad R(u, v)=\frac{\hat{I}(u, v) \hat{J}^{*}(u, v)}{\left|\hat{I}(u, v) \hat{J}^{*}(u, v)\right|} \\
+&\qquad r(x, y)=\mathcal{F}^{-1}(R(u, v)) \\
+&\qquad \left(\tau_{x}, \tau_{y}\right)=\arg \max _{(x, y) \in \Omega} r(x, y) \\
+&\text { Output } t_{x}, t_{y}
+\end{aligned}
+$$
+
+### Diffusion model
+
+$$
+E(u)=\int_{\Omega}\left[I(x)-J(\phi(x))]^{2}+\lambda\left(\left\|\nabla u_{1}\right\|^{2}+\left\|\nabla u_{2}\right\|^{2}\right) d x\right.
+$$
+
+### Demon
+
+Optic flow $v(x) = \left(v_1(x), v_2(x)\right)$
+$$
+\begin{align*}
+I\left(x_{1}, x_{2}, t\right)&=I\left(x_{1}+v_{1} \Delta t, x_{2}+v_{2} \Delta t, t+\Delta t\right), \quad\left(x_{1}, x_{2}\right) \in \Omega\\
+&=I\left(x_{1}, x_{2}, t\right)+v_{1} \Delta t \frac{\partial I}{\partial x_{1}}\left(x_{1}, x_{2}, t\right)+v_{2} \Delta t \frac{\partial I}{\partial x_{2}}\left(x_{1}, x_{2}, t\right)+\Delta t \frac{\partial I}{\partial t}\left(x_{1}, x_{2}, t\right)+O\left(\Delta t^{2}\right)
+\end{align*}
+$$
+or
+$$
+v\cdot\nabla I = -I_t
+$$
+Apply to registration
+$$
+\begin{align*}
+I\left(x_{1}, x_{2}\right)&=I\left(x_{1}, x_{2}, 0\right),\\
+J\left(x_{1}, 
+x_{2}\right)&=I\left(x_{1}, x_{2}, \Delta t\right),\\
+\phi\left(x_{1}, 
+x_{2}\right)&=\left(x_{1}+v_{1} \Delta t, x_{2}+v_{2} \Delta t\right)\\
+(J \circ \phi)\left(x_{1}, x_{2}\right)&=J\left(x_{1}+v_{1} \Delta t, x_{2}+v_{2} \Delta t\right)\\&=I\left(x_{1}+v_{1} \Delta t, x_{2}+v_{2} \Delta t, \Delta t\right)\\&=I\left(x_{1}, x_{2}, 0\right)=I\left(x_{1}, x_{2}\right)
+\end{align*}
+$$
+And
+$$
+u(x) = v(x) \cdot \Delta t\\
+u\cdot\nabla I=I-J
+$$
+Solve $u(x)=\frac{I(x)-J(x)}{\|\nabla I\|^{2}} \nabla I(x)$ or practically
+$$
+u(x)=\left\{\begin{array}{c}
+0, \text { if }\|\nabla I\|^{2}+(I-J)^{2}<\epsilon \\
+\frac{I-J}{\|\nabla\|^{2}+(I-J)^{2}} \nabla I, \text { otherwise }
+\end{array}\right.
+$$
+Update $\phi: \phi \leftarrow \phi \circ\left(I_{d}+u\right)$
+
+### LDDMM
+
+Too difficult
