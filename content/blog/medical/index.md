@@ -146,5 +146,49 @@ $$
 
 ### Solve PDE
 
-<a href="./ref/常微分方程.pdf">Lecture notes</a>
+<a href="ref/常微分方程.pdf">Lecture notes (previous course)</a>
+
+### Roadmap
+
+<img src="img/2.JPG" style="zoom:67%;" />
+
+## Registration
+
+General Formulation
+$$
+E(\phi) = d(I, J\circ\phi) + \lambda L(\phi)
+$$
+
+### Similarity metrics
+
+1. Sum of square distance
+
+$$
+d(I, J) = \sum_{x\in\Omega}\left(I(x) - J(x)\right)^2
+$$
+
+2. Cross correlation
+
+   Cross correlation quantifies the linear relationship
+
+$$
+\begin{aligned}
+&c c(I, J)=\frac{\mathbb{E}\left[\left(i-\mu_{i}\right)\left(j-\mu_{j}\right)\right]}{\mathbb{E}\left[\left(i-\mu_{i}\right)^{2}\right]^{\frac{1}{2}} \mathbb{E}\left[\left(j-\mu_{j}\right)^{2}\right]^{\frac{1}{2}}} \propto \frac{\left\langle I-\mu_{I}, J-\mu_{J}\right\rangle}{\sigma_{I} \sigma_{J}}\\
+&\text { where }\left\{\begin{array}{l}
+i=I(x), x \sim u\left(\Omega_{d}\right) \\
+j=J(x), x \sim u\left(\Omega_{d}\right)
+\end{array}\right.
+\end{aligned}
+$$
+
+3. Mutual information
+
+$$
+\begin{aligned}
+\operatorname{MI}(I ; J) &=\mathrm{KL}(P(i, j) \| P(i) P(j)) \\
+&=\sum_{i} \sum_{j} P(i, j) \log \frac{P(i, j)}{P(i) P(j)}\\
+&=\sum_i\sum_j P(i, j)\log P(i, j) - \sum_i P(i)\log P(i) - \sum_j P(j)\log P(j)\\
+&=-H(I, J)+H(I)+H(J)
+\end{aligned}
+$$
 
