@@ -35,14 +35,13 @@
     "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
-    "prettier": "^2.5.1"
+    "prettier": "^2.7.1"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
     "gatsby"
   ],
   "license": "0BSD",
-  "main": "n/a",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
