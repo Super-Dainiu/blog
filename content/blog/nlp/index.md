@@ -60,6 +60,23 @@ description: "A review for midterm"
 
 ## Text Normalization and Edit Distance
 
+- **Corpora**
+  - Words
+    - **Lemma**
+      - the base form of a set of words in general having the same stem, the same major part of speech, and the same word sense.
+    - **Wordform**
+      - **Inflectional**: has the same word class
+      - **Derivational**: Changes of word class
+    - Word **type** vs word **token**
+      - **Types** are the number of distinct words in a corpus, or the size of the vocabulary.
+      - **Tokens** refer to the occurrences of the words
+- **Text Normalization**
+  - Case folding
+  - Lemmatization
+    - **Morphology** is the study of the way words are built up from smaller meaning bearing units called **morphemes** .
+    - **Stemming**: a simpler but cruder method, which mainly consists of chopping off word final stemming affixes.
+- **Edit Distance**
+
 ## Parts of Speech and Named Entities
 
 - Parts of speech (POS) refers to word classes such as Noun, Verb, Adjective, etc.
