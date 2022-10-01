@@ -1,4 +1,5 @@
 ---
+
 title: Natural Language Processing
 date: "2022-10-01"
 description: "A review for midterm"
@@ -99,3 +100,24 @@ description: "A review for midterm"
 
 
 - Named entity is proper name for person, location, organization, etc.
+
+  - The task of named entity recognition (NER) is to find spans of text that constitute proper names and tag the type of the entity.
+
+- POS Tagging vs NER
+
+  - Differences
+
+    - In POS tagging, each word gets one tag,
+    - In NER, we do not know the boundary of names, before we can label them
+
+  - Similarities
+
+    - The same word may have different POS tags, like adj and adv for “Back”
+    - The same text span may have different NE types, like Victoria, Washington
+    - Both POS tagging and NER require surrounding words as context to make the
+      tagging
+    - Both POS tagging and NER work at sentence level -> sequence labeling
+
+    <img src="img/4-7.PNG" style="zoom:60%;" />
+
+- 
