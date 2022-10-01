@@ -76,5 +76,26 @@ description: "A review for midterm"
 
 - POS Tagging with **Hidden Markov Model (HMM)**
 
+  <img src="img/4-3.PNG" style="zoom:60%;" />
+
+  - Objective:  $\hat{t}_{1:n} = \mathrm{argmax}_{t_{1:n}}P(t_{1:n}|w_{1:n})$
+
+  - Transformation: 
+    $$
+    \hat{t}_{1: n}=\arg \max _{t_{1: n}} P\left(t_{1: n} \mid w_{1: n}\right)=\arg \max _{t_{1: n}} \frac{P\left(w_{1: n} \mid t_{1: n}\right) P\left(t_{1: n}\right)}{P\left(w_{1: n}\right)}
+    $$
+
+  $$
+  \approx \arg \max _{t_{1: n}} \boldsymbol{P}\left(\boldsymbol{w}_{1: n} \mid \boldsymbol{t}_{1: n}\right) \boldsymbol{P}\left(\boldsymbol{t}_{1: n}\right)
+  $$
+
+  <img src="img/4-4.PNG" style="zoom:60%;" />
+
+  <img src="img/4-5.PNG" style="zoom:60%;" />
+
+  
+
+- 
+
 
 - Named entity is proper name for person, location, organization, etc.
