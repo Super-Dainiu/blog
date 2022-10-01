@@ -1,0 +1,80 @@
+---
+title: Natural Language Processing
+date: "2022-10-01"
+description: "A review for midterm"
+---
+
+## Regular Expression (RE)
+
+- RE is a language for specifying text search strings.
+
+- Usage:
+
+  - **Concatenation**
+
+    - The simplest RE is a sequence of simple characters , like /test/
+    - Putting characters in sequence is called **concatenation**.
+
+    <img src="img/1-1.PNG" style="zoom:60%;" />
+
+  - **Disjunction** []
+
+    - Square brackets [ ] matches any single character from within the class
+    - Like /[wW]oodchuck/,  /[A-Z]/
+
+    <img src="img/1-2.PNG" style="zoom:60%;" />
+
+  - **Negation** ^
+
+    - If the caret ^ is the first symbol after the open square brace [, the resulting
+      pattern is negated.
+
+    <img src="img/1-3.PNG" style="zoom:60%;" />
+
+  - **Counters** ?*+
+    - Question mark ? matches zero or one appearance of the preceding item
+    - Kleene *(generally pronounced cleany star”) matches zero or more occurrences of the immediately previous character or regular expression
+    - Kleene + matches one or more occurrences of the immediately preceding character or regular expression.
+
+  - **Wildcard** .
+    - The period (/./) is a wildcard expression that matches any single character (except a carriage return), e.g., /beg.n/ matches begin , beg’n , begun
+  - **Anchors** ^$
+    - The caret ^ matches the start of a line
+    - The dollar sign $ matches the end of a line
+  - **Word Boundary** \b \B
+    - A “word” for the purposes of a regular expression is defined as any sequence of digits , underscores , or letters , based on the definition of “words” in programming languages.
+  - **Disjunction** |
+
+- Operator precedence
+
+  - Parenthesis ()
+  - Counters * + ? {}
+  - Sequences and anchors
+  - Disjunction |
+
+- The whole process is to fix two kinds of errors:
+
+  - False positives: strings that we incorrectly matched
+  - False negatives: strings that we incorrectly missed
+
+## Text Normalization and Edit Distance
+
+## Parts of Speech and Named Entities
+
+- Parts of speech (POS) refers to word classes such as Noun, Verb, Adjective, etc.
+
+  <img src="img/4-1.PNG" style="zoom:60%;" />
+
+  - Closed classes are those with relatively fixed membership , such as prepositions; new prepositions are rarely coined
+  - Nouns and verbs are among open classes new nouns and verbs like iPhone or fax are continually being created or borrowed
+  <img src="img/4-2.PNG" style="zoom:60%;" />
+
+
+  - POS tagging is challenging
+
+    - Words are **ambiguous**
+
+- POS Tagging with **Hidden Markov Model (HMM)**
+
+
+- Named entity is proper name for person, location, organization, etc.
