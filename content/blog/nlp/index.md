@@ -93,9 +93,9 @@ description: "A review for midterm"
 
   <img src="img/4-5.PNG" style="zoom:60%;" />
 
-  
+- **Viterbi Algorithm**
 
-- 
+  <img src="img/4-6.PNG" style="zoom:60%;" />
 
 
 - Named entity is proper name for person, location, organization, etc.
