@@ -69,3 +69,45 @@ A Chasing After the Wind: It gives you something to do but it gets you nowhere. 
 Under the Sun: From man’s point of view
 
 > Ecclesiastes 12:13 (NIV) 13 Now all has been heard; here is the conclusion of the matter: Fear God and keep his commandments, for this is the duty of all mankind.
+
+## Dec 17: Part 2: Success without Purpose
+
+### 1. **The Futility of Our Work (v17-23)**
+
+the meaning of “Meaningless” -- 
+
+emptiness, futility, like a vapor, It is something which vanishes quickly and leaves nothing behind
+
+> Ecclesiastes 2:17-23 (NIV) 17 So I hated life, because the work that is done under the sun was grievous to me. All of it is meaningless, a chasing after the wind. 18 I hated all the things I had toiled for under the sun, because I must leave them to the one who comes after me. 19 And who knows whether that person will be wise or foolish? Yet they will have control over all the fruit of my toil into which I have poured my effort and skill under the sun. This too is meaningless. 20 So my heart began to despair over all my toilsome labor under the sun. 21 For a person may labor with wisdom, knowledge and skill, and then they must leave all they own to another who has not toiled for it. This too is meaningless and a great misfortune. 22 What do people get for all the toil and anxious striving with which they labor under the sun? 23 All their days their work is grief and pain; even at night their minds do not rest. This too is meaningless.
+
+It can make us feel like the author/life is pessimistic. however, it is not! We should be diligent, and we need to put in the effort to study/work well because we are studying/working for the Lord. Rather, the author is provoking our thoughts to rethink about how we can live our lives with purpose to find fulfilment.
+
+
+
+- A pessimist will say “what I do is not going to matter = I’ll just lie flat”
+
+- A cynic will say “why to work hard? I am not going to benefit from it = I’ll quit quietly”
+
+
+
+Beyond the pessimism and cynicism, perhaps we should look deeper and perceive how should we be living our life?
+
+### 2. The Fulfilment In Our Labour (v24-26)
+
+From pessimism to purpose, from meaningless to meaningful, from chasing after the wind to cherishing life under the Sun, we need to enjoy the simple goodness in life!
+
+> Ecclesiastes 2:24-26 (NIV) 24 A person can do nothing better than to eat and drink and find satisfaction in their own toil. This too, I see, is from the hand of God, 25 for without him, who can eat or find enjoyment? 26 To the person who pleases him, God gives wisdom, knowledge and happiness, but to the sinner he gives the task of gathering and storing up wealth to hand it over to the one who pleases God. This too is meaningless, a chasing after the wind.
+
+Whatever portion God has given to us, accept it and be contented!
+
+
+
+Our life is fulfilling when God is at the center of our life, knowing He is the giver of all good things.
+
+We labor with the assurance that we have a purposeful life in a relationship with God.
+
+
+
+- A person who lives to please the Lord finds contentment and satisfaction.
+
+- A person who pleases God trusts Him to meet our every need.
